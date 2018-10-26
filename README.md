@@ -2,9 +2,10 @@
 @quick_notes.md
 
 #about project
-bitte in jede Woche# Ordner auch ein README.md hinfügen für Zustand jedes Blatt
 
-Repo in IntelliJ öffnen
+bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt
+
+#Repo in IntelliJ öffnen
 
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true "Logo Title Text 1")
 
