@@ -1,4 +1,4 @@
-package zwei;
+package Woche2;
 
 public class aufgabeVier {
     static String giveChange(int amount) {

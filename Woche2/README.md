@@ -1,1 +1,5 @@
-- aufgaben überprüfen
+# TODO
+
+* aufgabeDrei.txt anfangen
+
+* aufgaben überprüfen

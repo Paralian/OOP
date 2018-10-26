@@ -1,4 +1,4 @@
-package zwei;
+package Woche2;
 
 public class aufgabeZwei {
     static void method1() {
