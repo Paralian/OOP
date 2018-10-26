@@ -2,9 +2,11 @@
 @quick_notes.md
 
 #about project
+
 bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt
 
 #Repo in IntelliJ öffnen
+
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true "Logo Title Text 1")
 
 
@@ -21,6 +23,6 @@ Folder Structure so wie hier aussehen
 # to-do:
 Bitte auf README.md schreiben nach Fortschritten
 
-- todo example 1
+* todo example 1
 
-- todo example 2
+* todo example 2
