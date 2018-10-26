@@ -1,7 +1,7 @@
 # hilfreiche Kommandozeiles
 @quick_notes.md
 
-Videos:
+Videos
 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/SWYqp7iY_Tc/0.jpg)](http://www.youtube.com/watch?v=SWYqp7iY_Tc)
 
