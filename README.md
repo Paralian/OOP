@@ -1,6 +1,12 @@
 # hilfreiche Kommandozeiles
 @quick_notes.md
 
+Videos:
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/SWYqp7iY_Tc/0.jpg)](http://www.youtube.com/watch?v=SWYqp7iY_Tc)
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/E8TXME3bzNs/0.jpg)](http://www.youtube.com/watch?v=E8TXME3bzNs)
+
 # to-do:
 bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben 
 
