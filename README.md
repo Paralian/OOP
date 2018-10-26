@@ -1,9 +1,14 @@
 # hilfreiche Kommandozeiles
 @quick_notes.md
 
-# about project
+# to-do:
+bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben 
 
-bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt
+Beispiel:
+
+`* todo example 1`
+
+* todo example 1
 
 # Repo in IntelliJ öffnen
 
@@ -20,9 +25,3 @@ Folder Structure so wie hier aussehen
 
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/4.png?raw=true "Logo Title Text 1")
 
-# to-do:
-Bitte auf README.md schreiben nach Fortschritten
-
-* todo example 1
-
-* todo example 2
