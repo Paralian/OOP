@@ -1,14 +1,22 @@
-# hilfreiche Kommandozeiles
+# hilfreiche Kommandozeiles, formatting Regeln
 @quick_notes.md  
 Videos:  
 http://www.youtube.com/watch?v=SWYqp7iY_Tc  
 http://www.youtube.com/watch?v=E8TXME3bzNs
 
-# to-do:  
-bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben
+**bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben**
+
 Beispiel:
-`* todo example`
--   todo example
+  ```
+  todo example
+  [] task 1
+  [x] task 2
+  [] task 3
+  ```
+todo example </br>
+[] task 1</br>
+[x] task 2</br>
+[] task 3
 # Repo in IntelliJ öffnen
 ![](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true)
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/2.png?raw=true)
@@ -30,3 +38,20 @@ git pull origin master
 git merge test
 git push origin master
 ```
+Code | Function
+------------ | -------------
+`cd /drive/folder/of/repo` | Moves HEAD to the folder, alternatively right-click > GIT Bash here
+`git touch filename.ext` | creates filename.ext
+`git status`|returns status of current commit
+`git add .`|
+`git commit -m 'comment'`|add files to the staging area then commits the changes with 'comment', can be combined into a single command by using
+`git config --global alias.alias_name '!line1 && line2'`|
+`git touch .gitignore`|creates ignore list, inside .gitignore write any filename.ext or /path to whitelist the files/directories from `git add`
+`git branch newname`|creates a new branch to work on, avoiding changes to the master branch
+`git checkout branchname`|switch to branchname
+`git checkout -b branch-name`|creates new branch if !exists
+`git checkout branchname filename.ext`| pulls filename.ext from branchname
+`git merge newname`|
+`git remote add origin link.com/user.name/repo.git`|
+`git push -u origin branchname`| pushes the branchname branch
+`git merge --no-ff --no-commit branchname`| Merge from branchname to HEAD without committing, allowing user to modify the merged files however they want
