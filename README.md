@@ -9,14 +9,14 @@ http://www.youtube.com/watch?v=E8TXME3bzNs
 Beispiel:
   ```
   todo example
-  [] task 1
-  [x] task 2
-  [] task 3
+  - [ ] task 1
+  - [x] task 2
+  - [ ] task 3
   ```
 todo example </br>
-[] task 1</br>
-[x] task 2</br>
-[] task 3
+- [ ] task 1</br>
+- [x] task 2</br>
+- [ ] task 3
 # Repo in IntelliJ öffnen
 ![](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true)
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/2.png?raw=true)
