@@ -21,7 +21,7 @@ Beispiel:
 ![](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true)
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/2.png?raw=true)
 
-Oder wenn du von GIT Bash schon geclone hast, kannst du mit `File - New - Project from Existing Sources` wie unten gezeigt:  
+Oder wenn du von GIT Bash schon geclone hast, kannst du mit `File - Open` wie unten gezeigt:  
 ![](https://github.com/Paralian/OOP/blob/master/images/3.png?raw=true)
 
 Folder Structure so wie hier aussehen:  

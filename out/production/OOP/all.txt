@@ -1,0 +1,95 @@
+|  Welcome to JShell -- Version 9.0.1
+|  For an introduction type: /help intro
+
+jshell> System.out.println("Hello World!, Truong");
+Hello World!, Truong
+
+jshell> System.out.println(42+23);
+65
+
+jshell> System.out.println("42"+"23");
+4223
+
+jshell> System.out.println("Hello World!"+System.currentTimeMillis());
+Hello World!1539599541119
+
+jshell> int thirtyFive = 35;
+thirtyFive ==> 35
+
+jshell> char initial = 't';
+initial ==> 't'
+
+jshell> double pi = 3.14;
+pi ==> 3.14
+
+jshell> int product = 42*23;
+product ==> 966
+
+jshell> /v
+|    int thirtyFive = 35
+|    char initial = 't'
+|    double pi = 3.14
+|    int product = 966
+
+jshell> boolean b1 = (thirtyFive == 5*7);
+b1 ==> true
+
+jshell> boolean b2 = (pi == 3.14);
+b2 ==> true
+
+jshell> boolean b3 = (thirtyFive > 34);
+b3 ==> true
+
+jshell> boolean b4 = (thirtyFive >= 34);
+b4 ==> true
+
+jshell> double betrag = 4.97;
+betrag ==> 4.97
+
+jshell> int e2,e1,ct50,ct20,ct10,ct5,ct2,ct1;
+e2 ==> 0
+e1 ==> 0
+ct50 ==> 0
+ct20 ==> 0
+ct10 ==> 0
+ct5 ==> 0
+ct2 ==> 0
+ct1 ==> 0
+
+jshell> double betragcent = betrag *100;
+betragcent ==> 497.0
+
+jshell> int betragcentCast = (int) betragcent;
+betragcentCast ==> 497
+
+jshell> e2 = (int) betrag / 2;
+e2 ==> 2
+
+jshell> e1 = (int) betrag - e2*2;
+e1 ==> 0
+
+jshell> int centLeft = betragcentCast - e2*200 - e1*100;
+centLeft ==> 97
+
+jshell> ct50 = centLeft/50;
+ct50 ==> 1
+
+jshell> ct20 = (centLeft-ct50*50)/20;
+ct20 ==> 2
+
+jshell> ct10 = (centLeft-ct50*50-ct20*20)/10;
+ct10 ==> 0
+
+jshell> ct5 = (centLeft-ct50*50-ct20*20-ct10*10)/5;
+ct5 ==> 1
+
+jshell> ct2 = (centLeft-ct50*50-ct20*20-ct10*10-ct5*5)/2;
+ct2 ==> 1
+
+jshell> ct1 = (centLeft-ct50*50-ct20*20-ct10*10-ct5*5-ct2*2);
+ct1 ==> 0
+
+jshell> String res = e2+" mal 2 Euro, "+e1+" mal 1 Euro, "+ct50+" mal 50 Cent, "+ct20+" mal 20 Cent, "+ct10+" mal 10 Ce nt, "+ct5+" mal 5 Cent, "+ct2+" mal 2 Cent, "+ct1+" mal 1 Cent.";
+res ==> "2 mal 2 Euro, 0 mal 1 Euro, 1 mal 50 Cent, 2 mal ... mal 2 Cent, 0 mal 1 Cent."
+
+jshell>

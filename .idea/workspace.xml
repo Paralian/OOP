@@ -122,7 +122,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540635108532" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Woche1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -139,7 +139,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.aufgabeZwei">
+  <component name="RunManager" selected="Application.aufgabeEins">
     <configuration name="aufgabeEins" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="aufgabeEins" />
       <module name="OOP" />
@@ -168,9 +168,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.aufgabeEins" />
         <item itemvalue="Application.aufgabeZwei" />
         <item itemvalue="Application.aufgabeVier" />
-        <item itemvalue="Application.aufgabeEins" />
       </list>
     </recent_temporary>
   </component>
