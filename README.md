@@ -7,9 +7,9 @@ http://www.youtube.com/watch?v=E8TXME3bzNs
 # to-do:  
 bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben
 Beispiel:
-`* todo example 1`
+`* todo example`
 -   todo example
-    # Repo in IntelliJ öffnen
+# Repo in IntelliJ öffnen
 ![](https://github.com/Paralian/OOP/blob/master/images/1.png?raw=true)
 ![alt text](https://github.com/Paralian/OOP/blob/master/images/2.png?raw=true)
 
