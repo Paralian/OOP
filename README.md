@@ -1,5 +1,4 @@
-# hilfreiche Kommandozeiles, formatting Regeln
-@quick_notes.md  
+# formatting Regeln
 Videos:  
 http://www.youtube.com/watch?v=SWYqp7iY_Tc  
 http://www.youtube.com/watch?v=E8TXME3bzNs
@@ -38,6 +37,7 @@ git pull origin master
 git merge branchname OR git merge --no-ff --no-commit branchname
 git push origin master
 ```
+# Hilfreiche Commands
 Code | Function
 ------------ | -------------
 `cd /drive/folder/of/repo` | Moves HEAD to the folder, alternatively right-click > GIT Bash here
