@@ -4,7 +4,9 @@ Videos:
 <http://www.youtube.com/watch?v=SWYqp7iY_Tc>  
 <http://www.youtube.com/watch?v=E8TXME3bzNs>
 
-**bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben**
+**1. Bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben**
+
+**2. Bitte in weiteren Wochen nicht in master direkt arbeiten, sondern in deinem eingenen branches coden, da master immer die stabile version sein soll und nur durch pull requests und merges verändert werden soll**
 
 Beispiel:
 
@@ -27,13 +29,19 @@ Oder wenn du von GIT Bash schon geclone hast, kannst du mit `File - Open` wie un
 Folder Structure so wie hier aussehen:  
 ![](https://github.com/Paralian/OOP/blob/master/images/4.png?raw=true)
 
-# branching
+# branching strategy
 
--   Zum deinem eigenen branch einrichten:  
-    `git checkout -b branchname` (`-b` erstellt branchname falls es noch nicht existiert, nach der erste Erstellung kannst du einfach `git checkout branchname` benutzen)
--   Files in deinem Branch verarbeiten
--   Commit stellen wie immer
--   Zum master mergen:
+5 wichtigen Schritten:
+
+-   1.  Zum deinem eigenen branch einrichten:  
+        `git checkout -b branchname` (`-b` erstellt branchname falls es noch nicht existiert, nach der erste Erstellung kannst du einfach `git checkout branchname` benutzen).
+        Deine Funktionen, Aufgaben usw. bearbeiten, commit und pushen zum deinem remote branch wie immer
+-   2.  Zum master einrichten `git checkout master`
+-   3.  Die aktuelle Version checken/abholen `git pull origin master`
+-   4.  Zurück zum deinen branch und merge mit master (`git checkout branchname && git merge master`)
+-   5.  Zur remote pushen `git push origin master`
+
+Zusammenfassung:
 
 ```git checkout master
 git pull origin master
