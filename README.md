@@ -8,6 +8,7 @@ Videos:
 
 **2. Bitte in weiteren Wochen nicht in master direkt arbeiten, sondern in deinem eingenen branches coden, da master immer die stabile version sein soll und nur durch pull requests und merges verändert werden soll**
 
+****
 Beispiel:
 
     - aufgabe 1
@@ -74,3 +75,10 @@ git push origin master
 | `git push origin -d tagname`                                 | delete a tag(release) on remote                                                                                                                                                         |
 | `git merge --no-ff --no-commit branchname`                   | Merge from branchname to HEAD without committing, allowing user to modify the merged files however they want                                                                            |
 | `git log --graph --pretty=oneline --abbrev-commit`           | displays commit tree                                                                                                                                                                    |
+
+# Hilfreiche Atom packagen
+- markdown-preview-plus
+- linter
+- linter-javac
+- atom-beautify
+- file icons
