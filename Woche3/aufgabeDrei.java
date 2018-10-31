@@ -10,8 +10,48 @@ public class aufgabeDrei {
         }
         return (lo <= val && val <= hi);    // compare lower bound with value AND compare higher bound with value
     }
+    static int postage(int length, int width, int height, int weight) {
+        int price = 0;          //  init variable in cent
+        
+        if (isBetween(length, 140, 235)
+                &&isBetween(width, 90, 125)
+                &&isBetween(height, 0, 2)
+                &&isBetween(weight, 0, 15)) {
+            price = 45;
+        }
+        else if (isBetween(length, 140, 235)
+                &&isBetween(width, 90, 125)
+                &&isBetween(height, 0, 5)
+                &&isBetween(weight, 0, 20)) {
+            price = 70;
+        }
+        else if (isBetween(length, 100, 235)
+                &&isBetween(width, 70, 125)
+                &&isBetween(height, 0, 10)
+                &&isBetween(weight, 0,50)) {
+            price = 85;
+        }
+        else if (isBetween(length, 100, 353)
+                &&isBetween(width, 70, 250)
+                &&isBetween(height, 0, 20)
+                &&isBetween(weight, 0,500)){
+            price = 145;
+        }
+        else if (isBetween(length, 100, 353)
+                &&isBetween(width, 70, 250)
+                &&isBetween(height, 0, 50)
+                &&isBetween(weight, 0,1000)) {
+            price = 260;
+        }
+        
+        return price;
+    }
     
     public static void main(String[] args) {
-    
+    int length = 144;
+    int width = 90;
+    int height = 13;
+    int weight = 420;
+        System.out.println(postage(length, width, height, weight));
     }
 }
