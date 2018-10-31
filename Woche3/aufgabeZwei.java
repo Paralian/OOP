@@ -4,16 +4,16 @@ import static java.lang.Math.*;
 
 public class aufgabeZwei {
     
-    static final double PI0 = sqrt(12);
+    static final double PI0 = sqrt(12);     // das P0, Wurzel aus 12 und somit eine sehr grobe Approximation von Pi
     static double piN;
     static double third = (-1.0 / 3.0);
     
     /**
      * piIterative berechnet die Zahl pi in n Iterationen
      *
-     * @param n     Genauigkeit der Berechnung
+     * @param n Genauigkeit der Berechnung
      *
-     * @return      liefert die Zahl pi
+     * @return die Zahl pi
      */
     
     
@@ -22,13 +22,13 @@ public class aufgabeZwei {
         int i = 0;
         while (i <= n) {
             piN = piN + PI0 * (pow(third, i) / (2 * i + 1));
-            ++i;
+            i = i + 1;
         }
         return piN;
     }
     
     static double piRecursive(int n) {
-        if (n == 0) {
+        if (n <= 0) {
             return PI0;
         }
         piN = ((PI0 * (pow(third, n))) / ((2 * n) + 1)) + piRecursive(n - 1);

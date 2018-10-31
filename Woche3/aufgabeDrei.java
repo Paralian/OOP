@@ -25,8 +25,8 @@ public class aufgabeDrei {
     static int postage(int length, int width, int height, int weight) {
         int price = 0;                                                           //  Preis (Cent)
         
-        //  m[i][const]: unterschiedliche Preisklassen
-        //  m[const][j]: price, weight(lo, hi), height(lo, hi), width(lo, hi), length(lo, hi)
+        //  M[i][const]: unterschiedliche Preisklassen
+        //  M[const][j]: price, weight(lo, hi), height(lo, hi), width(lo, hi), length(lo, hi)
         final int[][] M = {{45, 0, 2, 0, 15, 90, 125, 140, 235},                       //  Postkarte
                 {70, 0, 5, 0, 20, 90, 125, 140, 235},                            //  Standard
                 {85, 0, 10, 0, 50, 70, 125, 100, 235},                           //  Kompakt
@@ -42,11 +42,11 @@ public class aufgabeDrei {
         spalte:
         for (int i = 0; i < M.length; i++) {                                     // iteriere m[][] Zeilenweise
             zeile:
-            for (int j = 1; j < M[i].length - 1; j = j + 2) {                    // iteriere m[][] Spaltenweise(2x)
+            for (int j = 1; j < M[i].length - 1; j = j + 2) {                    // iteriere m[][] innerhalb der Zeile, Spaltenweise(2x)
                 if (isBetween(p[((j + 1) / 2) - 1], M[i][j], M[i][j + 1])) {     // verknüpfe Pointer von p[] mit j aus m[][]
                     pass++;                                                      // und prüfe, ob Betrag P[x] im Intervall M
-                    if (pass >= 4) {                                             // falls ja, inkrementiere PASS und prüfe ob alle Abmessungen gestimmt haben
-                        price = M[i][0];
+                    if (pass >= 4) {                                             // falls ja, inkrementiere PASS
+                        price = M[i][0];                                         // und prüfe ob alle Abmessungen gestimmt haben
                         break spalte;                                            // wenn alles stimmt, nehme Preis
                     }                                                            // aus der ersten Spalte in M
                 } else {                                                         // sonst beim ersten nehme nächste Zeile aus m[][]

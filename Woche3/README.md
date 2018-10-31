@@ -4,8 +4,8 @@
     - [x] pi iterative
     - [x] tests
     - [x] JavaDoc comments
-- [ ] Aufgabe 3
+- [x] Aufgabe 3
     - [x] boolean isBetween(val, lo, hi)
-    - [ ] int postage(params)
-- [ ] ????
-- [ ] PROFIT!
+    - [x] int postage(params)
+- [x] ????
+- [x] PROFIT!
