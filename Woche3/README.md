@@ -1,2 +1,11 @@
-- [ ] Aufgabe 1
--
+- [x] Aufgabe 1
+- [x] Aufgabe 2
+    - [x] pi recursive
+    - [x] pi iterative
+    - [x] tests
+    - [x] JavaDoc comments
+- [ ] Aufgabe 3
+    - [x] boolean isBetween(val, lo, hi)
+    - [ ] int postage(params)
+- [ ] ????
+- [ ] PROFIT!
