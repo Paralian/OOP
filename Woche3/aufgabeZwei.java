@@ -4,7 +4,6 @@ import static java.lang.Math.*;
 
 public class aufgabeZwei {
     
-    // approx Pi ~= P0=sqrt(12); Pn=sqrt(12)*((-1.0/3.0)**n)/(2n+1)+Pn-1
     static final double PI0 = sqrt(12);
     static double piN;
     static double third = (-1.0 / 3.0);
@@ -12,8 +11,9 @@ public class aufgabeZwei {
     /**
      * piIterative berechnet die Zahl pi in n Iterationen
      *
-     * @param n Genauigkeit der Berechnung
-     * @return liefert die Zahl pi
+     * @param n     Genauigkeit der Berechnung
+     *
+     * @return      liefert die Zahl pi
      */
     
     
@@ -31,7 +31,7 @@ public class aufgabeZwei {
         if (n == 0) {
             return PI0;
         }
-        piN = PI0 * (pow(third, n)) / (2 * n + 1) + piRecursive(n - 1);
+        piN = ((PI0 * (pow(third, n))) / ((2 * n) + 1)) + piRecursive(n - 1);
         return piN;
     }
     
