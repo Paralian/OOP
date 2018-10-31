@@ -12,9 +12,6 @@ public class aufgabeDrei {
     }
     
     public static void main(String[] args) {
-        System.out.println(isBetween(2, 1, 3));
-        System.out.println(isBetween(2, 3, 1));
-        System.out.println(isBetween(5, 5, 5));
-        System.out.println(isBetween(6, 2, 4));
+    
     }
 }
