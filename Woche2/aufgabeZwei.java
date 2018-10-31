@@ -1,3 +1,5 @@
+package Woche2;
+
 public class aufgabeZwei {
     static void method1() {
         System.out.println("Enter method1");
@@ -26,4 +28,20 @@ public class aufgabeZwei {
     public static void main(String[] args) {
         method1();
     }
+    /*
+		Konsolenausgabe:
+
+		Enter method1
+		Enter method2_1
+		Enter method2_2
+		Enter method3
+		Exit method3
+		Exit method2_2
+		Exit method2_1
+		Enter method2_2
+		Enter method3
+		Exit method3
+		Exit method2_2
+		Exit method1
+		*/
 }
