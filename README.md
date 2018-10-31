@@ -6,9 +6,12 @@ Videos:
 
 **1. Bitte in jede Woche Ordner auch ein README.md hinfügen für Zustand jedes Blatt und darauf nach Fortschritten schreiben**
 
-**2. Bitte in weiteren Wochen nicht in master direkt arbeiten, sondern in deinem eingenen branches coden, da master immer die stabile version sein soll und nur durch pull requests und merges verändert werden soll**
+**2. Bitte in weiteren Wochen nicht in master direkt arbeiten, sondern in deinem eingenen branches coden, da master immer die stabile version sein soll und nur durch pull requests und merges verändert werden soll. master branch soll immer sauber sein !**
 
-****
+* * *
+
+# readme.md codierung Regeln
+
 Beispiel:
 
     - aufgabe 1
@@ -50,6 +53,8 @@ git merge branchname OR git merge --no-ff --no-commit branchname
 git push origin master
 ```
 
+Hilfreiche zum Visualization: <https://stackoverflow.com/questions/1057564/pretty-git-branch-graphs/9074343#9074343>
+
 # Hilfreiche Commands
 
 | Code                                                         | Function                                                                                                                                                                                |
@@ -77,8 +82,9 @@ git push origin master
 | `git log --graph --pretty=oneline --abbrev-commit`           | displays commit tree                                                                                                                                                                    |
 
 # Hilfreiche Atom packagen
-- markdown-preview-plus
-- linter
-- linter-javac
-- atom-beautify
-- file icons
+
+-   markdown-preview-plus
+-   linter
+-   linter-javac
+-   atom-beautify
+-   file icons
