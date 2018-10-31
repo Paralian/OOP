@@ -3,20 +3,20 @@ public class aufgabeZwei {
     public static double pStart ;//root of 12
     public static int n; //step
     public static double pNext;
-
-    static double piIterative(int n){
-        while (n != 0){
+//TODO: debug
+    static double piIterative(int n) {
+        while (n >= 0){
             pStart = Math.sqrt(12);
-            pNext = Math.sqrt(12)*(((-1/3)^n)/(2*n+1)) + pStart;
+            pNext = Math.sqrt(12)*((Math.pow((-1.0/3.0),n))/(2*n+1)) + pStart;
             pStart = pNext;
             n--;
         }
         return pNext;
     }
 
-    static double piRecursive(int n){
+    static double piRecursive(int n) {
         pStart = Math.sqrt(12);
-        pNext = Math.sqrt(12)*(((-1/3)^n)/(2*n+1)) + pStart;
+        pNext = Math.sqrt(12)*((Math.pow((-1.0/3.0),n))/(2*n+1)) + pStart;
         pStart = pNext;
         n--;
         if (n >= 0) piRecursive(n);
@@ -24,8 +24,9 @@ public class aufgabeZwei {
     }
 
     public static void main(String[] args) {
-        //TODO: test with n between 0 and 20
-        System.out.println(piIterative(5));
-        System.out.println(piRecursive(5));
+        System.out.println(piIterative(0));
+        System.out.println(piIterative(3));
+        System.out.println(piRecursive(3));
+        System.out.println(piRecursive(6));
     }
 }
