@@ -1,3 +1,4 @@
+package Woche2;
 public class aufgabeZwei {
     static void method1() {
         System.out.println("Enter method1");

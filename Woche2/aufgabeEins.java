@@ -1,4 +1,4 @@
-
+package Woche2;
 
 public class aufgabeEins {
     static int predecessor(int a) {
