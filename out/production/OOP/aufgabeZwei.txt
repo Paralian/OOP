@@ -1,0 +1,14 @@
+Konsolenausgabe:
+
+Enter method1
+Enter method2_1
+Enter method2_2
+Enter method3
+Exit method3
+Exit method2_2
+Exit method2_1
+Enter method2_2
+Enter method3
+Exit method3
+Exit method2_2
+Exit method1
