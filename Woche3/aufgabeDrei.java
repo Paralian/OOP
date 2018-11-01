@@ -1,17 +1,20 @@
 package Woche3;
 
 public class aufgabeDrei {
-    static boolean isBetween(int val, int lo, int hi) {
-        if (lo <= hi) {                                     // check if boundaries ordered incorrectly
-            return (lo <= val && val <= hi);                // compare lower bound with value AND compare higher bound with value
+    static boolean isBetween(int value, int lo, int hi) {
+        if (lo <= hi) {                                     // prüfe ob Grenzen OK
+            return (lo <= value && value <= hi);                // vergleiche Untergrenze mit Wert & Wert mit Obergrenze
         } else {
-            return (hi <= val && val <= lo);                // if boundaries incorrect, swap boundaries & compare
+            return (hi <= value && value <= lo);                // falls Grenzen nicht OK, swap Grenzen & vergleiche mit Wert
         }
         
     }
     
     /**
-     * postage() rechnet Portokosten aus gegebenen Maßen des Pakets aus
+     * rechnet Portokosten aus gegebenen Maßen des Pakets aus
+     *      mittels verschachtelter for-Schleife,
+     *      eines 2D-Arrays mit Preisbedingungen
+     *      und eines Arrays mit Paketparametern
      *
      * @param length Länge des Pakets
      * @param width  Breite des Pakets
@@ -24,8 +27,9 @@ public class aufgabeDrei {
     static int postage(int length, int width, int height, int weight) {
         int price = 0;                                                           //  Preis (Cent)
         
-        //  M[i][const]: unterschiedliche Preisklassen
-        //  M[const][j]: price, height(lo, hi), weight(lo, hi), width(lo, hi), length(lo, hi)
+        /*  M[i][const]: unterschiedliche Preisklassen
+        *   M[const][j]: price, height(lo, hi), weight(lo, hi), width(lo, hi), length(lo, hi)
+        */
         final int[][] M = {{45, 0, 2, 0, 15, 90, 125, 140, 235},                 //  Postkarte
                 {70, 0, 5, 0, 20, 90, 125, 140, 235},                            //  Standard
                 {85, 0, 10, 0, 50, 70, 125, 100, 235},                           //  Kompakt

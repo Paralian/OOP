@@ -9,23 +9,31 @@ public class aufgabeZwei {
     static double third = (-1.0 / 3.0);
     
     /**
-     * piIterative berechnet die Zahl pi in n Iterationen
+     * berechnet die Zahl Pi in n Iterationen
      *
      * @param n Genauigkeit der Berechnung
      *
-     * @return die Zahl pi
+     * @return die Zahl Pi
      */
     
     
     static double piIterative(int n) {
         piN = 0;
-        int i = 0;
+        int i = 0;                      // Zähler aktueller Schritte
         while (i <= n) {
-            piN = piN + PI0 * (pow(third, i) / (2 * i + 1));
+            piN = piN + PI0 * (pow(third, i) / (2 * i + 1));    //
             i = i + 1;
         }
         return piN;
     }
+    
+    /**
+     * berechnet die Zahl Pi rekursiv mit Tiefe n
+     *
+     * @param n Genauigkeit der Berechnung
+     *
+     * @return die Zahl Pi
+     */
     
     static double piRecursive(int n) {
         if (n <= 0) {
