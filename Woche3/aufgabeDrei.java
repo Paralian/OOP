@@ -43,9 +43,9 @@ public class aufgabeDrei {
         int pass = 0;                                                            // interner Zähler von passenden Parametern
         
         check:
-        for (int i = 0; i < M.length; i++) {                                     // iteriere m[][] Zeilenweise
+        for (int i = 0; i < M.length; i++) {                                     // iteriere M[][] Zeilenweise
             line:
-            for (int j = 1; j < M[i].length - 1; j = j + 2) {                    // iteriere m[][] innerhalb der Zeile, Spaltenweise(2x)
+            for (int j = 1; j < M[i].length - 1; j = j + 2) {                    // iteriere M[][] innerhalb der Zeile, Spaltenweise(2x)
                 if (isBetween(p[((j + 1) / 2) - 1], M[i][j], M[i][j + 1])) {     // verknüpfe Pointer von p[] mit j aus m[][]
                     pass++;                                                      // und prüfe, ob Betrag P[x] im Intervall M
                     if (pass >= 4) {                                             // falls ja, inkrementiere PASS
