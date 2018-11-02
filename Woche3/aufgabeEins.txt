@@ -1,16 +1,16 @@
-double myCalculation(double base, int exponent) {
+double myCalculation(final double BASE, final int EXPONENT) {
   double result = 1;
-  if (exponent < 0) {
-    int amount = exponent * -1;
+  if (EXPONENT < 0) {
+    int amount = EXPONENT * -1;
     while (amount > 0) {
-      result = result / base;
+      result = result / BASE;
       amount -= 1;
     }
     return result;
   } else {
-    int count = exponent;
+    int count = EXPONENT;
     while (count > 0) {
-      result = result * base;
+      result = result * BASE;
       count -= 1;
     }
     return result;
