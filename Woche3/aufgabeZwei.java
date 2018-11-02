@@ -9,7 +9,7 @@ public class aufgabeZwei {
     static double third = (-1.0 / 3.0);
     
     /**
-     * berechnet die Zahl Pi in n Iterationen
+     * berechnet die die Approximation der Zahl Pi in n Iterationen
      *
      * @param n Genauigkeit der Berechnung
      *
@@ -28,7 +28,7 @@ public class aufgabeZwei {
     }
     
     /**
-     * berechnet die Zahl Pi rekursiv mit Tiefe n
+     * berechnet die Approximation der Zahl Pi rekursiv mit Tiefe n
      *
      * @param n Genauigkeit der Berechnung
      *
