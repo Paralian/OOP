@@ -7,9 +7,9 @@ public class aufgabeDrei {
         } else {
             return (hi <= value && value <= lo);                // falls Grenzen nicht OK, swap Grenzen & vergleiche mit Wert
         }
-        
+
     }
-    
+
     /**
      * rechnet Portokosten aus gegebenen Maßen des Pakets aus
      *      mittels verschachtelter for-Schleife,
@@ -22,11 +22,11 @@ public class aufgabeDrei {
      * @param weight Gewicht
      * @return Preis in Cent
      */
-    
-    
+
+
     static int postage(int length, int width, int height, int weight) {
         int price = 0;                                                           //  Preis (Cent)
-        
+
         /*  M[i][const]: unterschiedliche Preisklassen
         *   M[const][j]: price, height(lo, hi), weight(lo, hi), width(lo, hi), length(lo, hi)
         */
@@ -35,13 +35,13 @@ public class aufgabeDrei {
                 {85, 0, 10, 0, 50, 70, 125, 100, 235},                           //  Kompakt
                 {145, 0, 20, 0, 500, 70, 250, 100, 353},                         //  Gross
                 {260, 0, 50, 0, 1000, 70, 250, 100, 353}};                       //  Maxi
-        
+
         /*  Parameter des Pakets (Höhe, Gewicht, Breite, Länge), gespeichert als Array */
         int[] p = {height, weight, width, length};
-        
+
         /*  vergleiche Paketabmessungen mit den Vorgaben */
         int pass = 0;                                                            // interner Zähler von passenden Parametern
-        
+
         check:
         for (int i = 0; i < M.length; i++) {                                     // iteriere M[][] Zeilenweise
             line:
@@ -60,7 +60,7 @@ public class aufgabeDrei {
         }
         return price;
     }
-    
+
     public static void main(String[] args) {
         int length = 141;
         int width = 92;
