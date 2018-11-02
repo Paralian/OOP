@@ -1,0 +1,18 @@
+double myCalculation(double base, int exponent) {
+  double result = 1;
+  if (exponent < 0) {
+    int amount = exponent * -1;
+    while (amount > 0) {
+      result = result / base;
+      amount -= 1;
+    }
+    return result;
+  } else {
+    int count = exponent;
+    while (count > 0) {
+      result = result * base;
+      count -= 1;
+    }
+    return result;
+  }
+}
