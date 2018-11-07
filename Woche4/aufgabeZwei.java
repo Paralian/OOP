@@ -4,7 +4,7 @@ public class aufgabeZwei {
      * 1. 1st ring can always be removed/added
      * 2. if n-2 is removed and n-1 is present then n can be added/removed
      * 3. 1 ring per move
-     * n-2(0) n-1(1) = n-1.canMove;
+     * n-2(1) n-1(0) = n.canMove;
      */
     int iCount = 8;
 
@@ -19,13 +19,14 @@ public class aufgabeZwei {
             return true;
         return false;
     }
-    /*
-        boolean canMove(byte stick, int pos){
-            if ()
-                return true;
-            return false;
-        }
 
+    static boolean canMove(byte stick, int pos){
+        if (!isOnStick(stick,pos-2) && isOnStick(stick,pos-1) || pos == 0)
+            return true;
+        return false;
+    }
+
+    /*
         byte move(byte stick, int pos, boolean on);
         void printStick(byte stick);
         byte solve(byte stick, int rings);
@@ -48,7 +49,6 @@ public class aufgabeZwei {
 
         for (int i = 0; i < 8; i++) {
             System.out.println("POS " + i + " "+ isOnStick(bTest,i));
-
         }
     }
 }
