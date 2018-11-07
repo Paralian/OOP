@@ -3,13 +3,12 @@ package Woche4;
 import static java.lang.Math.*;
 
 public class aufgabeZwei {
-    static boolean isOnStick(byte stick, int pos) {    // pos = [0,7]
-        int i = ~stick & (1 << pos);        // invert stick, pass through AND-mask of position
-        return (i != 0);
+    static boolean isOnStick(byte stick, int pos) {      // pos = [0,7]
+        return ((~stick & (1 << pos)) != 0);             // invert stick, pass through AND-mask of position
     }
     
     static boolean canMove(byte stick, int pos) {
-        return ((~stick & (byte) (pow(2, pos - 1))) == (byte) pow(2, pos - 1));                 // ~stick & mask == mask?
+        return ((~stick & (byte) (pow(2, pos - 1))) == (byte) pow(2, pos - 1));     // ~stick & mask == mask?
     }
     
     static byte move(byte stick, int pos, boolean on) {
@@ -18,7 +17,7 @@ public class aufgabeZwei {
                 stick = (byte) ~(~stick & ~pos);     // ring on stick & movable -> take ring off
             }
             else{
-                stick = (byte) (stick | pos);      // ring not on stick, stick ringable -> put ring on
+                stick = (byte) (stick | pos);       // ring not on stick, stick ringable -> put ring on
             }
         }
         return stick;
@@ -41,17 +40,20 @@ public class aufgabeZwei {
     }
     
     static byte solve(byte stick, int rings) {
-        //TODO
+        //TODO  printStick after every step
         return stick;
     }
     
     static byte unsolve(byte stick, int rings) {
-        //TODO
+        //TODO  printStick after every step
         return stick;
     }
     
     public static void main(String[] args) {
-        byte stick = (byte) 102;
-        printStick(stick);
+        byte stick = (byte) 255;
+        int rings = 0;
+        solve(stick, rings);
+        unsolve(stick, rings);
+        
     }
 }
