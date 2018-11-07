@@ -11,7 +11,7 @@ public class aufgabeZwei {
     /**
      *
      * @param stick Status of the stick in byte, e.g (byte) 255 = 11111111
-     * @param pos current appointed position
+     * @param pos current appointed position, STARTS AT 0 TO 7, NOT 1 TO 8
      * @return true if 0, else false
      */
     static boolean isOnStick(byte stick, int pos){
@@ -32,16 +32,17 @@ public class aufgabeZwei {
         byte unsolve(byte stick, int rings);
         */
     public static void main(String[] args) {
+        //Test console
         byte bTest = (byte) 200;
-        String s1 = String.format("%8s", Integer.toBinaryString(bTest & 0xFF)).replace(' ', '0');
         int iPos = 0;
-        System.out.println(s1);
-
+        //
         int res1 = bTest >> iPos;
         int res2 = bTest >> iPos & 1;
 
+        String s1 = String.format("%8s", Integer.toBinaryString(bTest & 0xFF)).replace(' ', '0');
         String s2 = String.format("%8s", Integer.toBinaryString(res1 & 0xFF)).replace(' ', '0');
         String s3 = String.format("%8s", Integer.toBinaryString(res2 & 0xFF)).replace(' ', '0');
+        System.out.println(s1);
         System.out.println("BITWISE SHIFT BY "+ iPos +": " + s2);
         System.out.println("then " + s3);
 
