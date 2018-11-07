@@ -15,8 +15,7 @@ public class aufgabeZwei {
         if (canMove(stick, pos)) {
             if (isOnStick(stick, pos) && !on) {
                 stick = (byte) ~(~stick & ~pos);     // ring on stick & movable -> take ring off
-            }
-            else{
+            } else {
                 stick = (byte) (stick | pos);       // ring not on stick, stick ringable -> put ring on
             }
         }
@@ -25,7 +24,7 @@ public class aufgabeZwei {
     
     static void printStick(byte stick) {
         String result = "";
-        int power = 8;             //  get max power of 2 so that pow(2, power) <= n
+        int power = 8;
         while (power >= 0 && stick >= 0) {
             if (stick - pow(2, power) >= 0) {
                 result = result + "1";                      //  subtraction positive -> top bit = 1
