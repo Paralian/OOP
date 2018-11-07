@@ -28,14 +28,14 @@ public class aufgabeEins {
         while (power >= 0 && n >= 0) {
             int i = 0;
             while (n - pow(BASE, power) >= 0) {
-                i++;
+                i++;                                        //  count how many 8's there are
                 n = n - ((int) pow(BASE, power));
             }
             power--;
-            result = result + i;
+            result = result + i;                            //  record the first number, go on for second etc.
         }
         
-        return result;
+        return result;                          // *thinking* this may work for any base if you take it from method signature
     }
     
     static String toTwosComplement(byte n) {
@@ -78,9 +78,9 @@ public class aufgabeEins {
         byte c = -128;
         byte d = 5;
         
-        System.out.println(a +" in binary is: "+toBinary(42));
-        System.out.println("Why do mathematicians have trouble holding Halloween and Christmas apart?\n" +
-                "Because OCT" + toOctal(b) + " = DEC25");
+        System.out.println(a + " in binary is: " + toBinary(a));
+        System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n" +
+                "-- Because OCT" + toOctal(b) + " = DEC25");
         System.out.println(c + " in 2C: " + toTwosComplement(c));
         System.out.println(d + " in 2C: " + toTwosComplement(d));
     }
