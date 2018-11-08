@@ -6,17 +6,20 @@ public class aufgabeEins {
     static String toBinary(int n) {
         final int BASE = 2;
         String result = "";
-        
-        int power = (int) (log(n) / log(BASE));             //  get max power of 2 so that pow(2, power) <= n
-        while (power >= 0 && n >= 0) {
-            if (n - pow(BASE, power) >= 0) {
-                result = result + "1";                      //  subtraction positive -> top bit = 1
-                n = n - ((int) pow(BASE, power));           //  subtract
-                power--;
-            } else {
-                result = result + "0";                      //  subtraction not positive -> top bit = 0
-                power--;                                    //  try next smaller power of 2
+        if (n > 0) {
+            int power = (int) (log(n) / log(BASE));             //  get max power of 2 so that pow(2, power) <= n
+            while (power >= 0 && n >= 0) {
+                if (n - pow(BASE, power) >= 0) {
+                    result = result + "1";                      //  subtraction positive -> top bit = 1
+                    n = n - ((int) pow(BASE, power));           //  subtract
+                    power--;
+                } else {
+                    result = result + "0";                      //  subtraction not positive -> top bit = 0
+                    power--;                                    //  try next smaller power of 2
+                }
             }
+        } else {
+            result = "should be 0 but n is not allowed to be 0 so 42 is the answer";
         }
         return result;
     }
