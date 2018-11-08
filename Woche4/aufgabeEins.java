@@ -26,7 +26,7 @@ public class aufgabeEins {
     }
 
     static String toTwosComplement(byte n) {
-        String result = "0" + toBinary((int) n);
+        String result = "0" + toBinary(n);
         result = result.replaceAll("-","");
         if (n >= 0) {
             return result;
@@ -39,6 +39,7 @@ public class aufgabeEins {
                     onesComplement = "1" + onesComplement;
                 }
             }
+            System.out.println(n + " in Einerkomplement ist " + onesComplement);
             result = "";
             int carryOver = 1;
             for (int i = onesComplement.length() - 1; i >= 0; i--) {
@@ -64,8 +65,10 @@ public class aufgabeEins {
     }
 
     public static void main(String[] args) {
+        int n = -126;
         System.out.println("47 in Binaerdarstellung ist " + toBinary(47));
         System.out.println("172 in Oktaldarstellung ist " + toOctal(172));
-        System.out.println("-6 in Zweierkomplement ist " + toTwosComplement((byte) -6));
+        System.out.println(n + " in Zweierkomplement ist " + toTwosComplement((byte) n));
+        System.out.println("Zum Vergleichen steht das Ergebnis des Befehls toBinaryString zur Verfuegung: " + Integer.toBinaryString((n & 0xFF) + 256).substring(1));
     }
 }
