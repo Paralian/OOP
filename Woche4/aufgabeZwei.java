@@ -20,7 +20,12 @@ public class aufgabeZwei {
         return false;
     }
 
-
+    /**
+     * checks if the appointed position in the board can be moved
+     * @param stick current status of the board
+     * @param pos current position
+     * @return true if it can be moved, false otherwise
+     */
     static boolean canMove(byte stick, int pos) {
         if (pos == 0)
             return true;
@@ -36,6 +41,13 @@ public class aufgabeZwei {
         return false;
     }
 
+    /**
+     * moved the selected slot if possible
+     * @param stick current status of the board
+     * @param pos current position
+     * @param on set to true to insert a ring, false to remove one
+     * @return board state after moving
+     */
     static byte move(byte stick, int pos, boolean on){
         if (canMove(stick, pos)){
             if (on) {//true, 1 -> 0, unset the bit
@@ -50,10 +62,20 @@ public class aufgabeZwei {
         return stick;
     }
 
+    /**
+     * prints the current board state
+     * @param stick current status of the board
+     */
     static void printStick(byte stick){
         System.out.println(String.format("%8s", Integer.toBinaryString(stick & 0xFF)).replace(' ', '0'));
     }
 
+    /**
+     * solves the board up to the rings-th position
+     * @param stick current status of the board
+     * @param rings desired position to solve the board to
+     * @return solved board
+     */
     static byte solve(byte stick, int rings) { //1111 1111
         //checks canMove() from left to right, resets bit value
         for (int i = rings; i > 0; i--) {
