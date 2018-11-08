@@ -51,22 +51,42 @@ public class aufgabeZwei {
     }
 
     static void printStick(byte stick){
-        System.out.println(String.format("%8s", Integer.toBinaryString(stick & 0xFF)));
+        System.out.println(String.format("%8s", Integer.toBinaryString(stick & 0xFF)).replace(' ', '0'));
     }
 
-    static byte solve(byte stick, int rings){//all to 1
-        //TODO:make pos.canMove -> rings recursive
-        //TODO: scan canMove() after every move()
-        for (int i = 0; i <= rings; i++) {
-            if (isOnStick(stick,i)) {
-                stick = move(stick, i, false);
-                printStick(stick);
+    static byte solve(byte stick, int rings) { //1111 1111
+        //checks canMove() from left to right, resets bit value
+        for (int i = rings; i > 0; i--) {
+            if (canMove(stick,i)) {
+                if (isOnStick(stick,i)) {
+                    stick = move(stick,i,false);
+                    printStick(stick);
+                }
+                else {
+                    stick = move(stick,i,true);
+                    printStick(stick);
+                }
             }
-            else {
-                stick = move(stick,i,true);
-                printStick(stick);
+        }
+        //resets bit value at pos 0
+        if (isOnStick(stick,0)){
+            stick = move(stick,0,false);
+            printStick(stick);
+        } else {
+            stick = move(stick,0,true);
+            printStick(stick);
+        }
+        System.out.println("TO RECURSION SECTION");
+        int k =rings;
+        while (k >= 0){
+            //TODO: Fix recursion bug
+            System.out.print("pos "+ k + "  ");
+            System.out.print("checking current print  "); printStick(stick);
+            if (isOnStick(stick,k)) {
+                System.out.println("recursing next..");
+                solve(stick, rings);
             }
-
+            k--;
         }
         return stick;
     }
@@ -125,7 +145,8 @@ public class aufgabeZwei {
         /**
          * solve() AND unsolve() TEST CONSOLE
          */
-        System.out.println("solve() TEST with " + s4);
-        solve(bTest2,7);
+        System.out.println("solve() TEST with ");
+        printStick((byte) 0);
+        solve((byte) 0,5);
     }
 }
