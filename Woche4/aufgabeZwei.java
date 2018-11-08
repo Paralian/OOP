@@ -39,12 +39,50 @@ public class aufgabeZwei {
     }
 
     static byte solve(byte stick, int rings) {
-        
+        if (rings == 1) {
+            stick = move(stick, 1,false);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = move(stick, 2,false);
+            printStick(stick);
+            stick = solve(stick, 1);
+            return stick;
+        } else {
+            stick = solve(stick,rings - 2);
+            stick = move(stick, rings,false);
+            printStick(stick);
+            stick = unsolve(stick,rings - 2);
+            stick = solve(stick, rings - 1);
+            return stick;
+        }
+    }
+
+    static byte unsolve(byte stick, int rings) {
+        if (rings == 1) {
+            stick = move(stick, 1,true);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = unsolve(stick, 1);
+            stick = move(stick, 2, true);
+            printStick(stick);
+            return stick;
+        } else {
+            stick = unsolve(stick,rings - 1);
+            stick = solve(stick, rings - 2);
+            stick = move(stick, rings,true);
+            printStick(stick);
+            stick = unsolve(stick, rings - 2);
+            return stick;
+        }
     }
 
     public static void main(String[] args) {
-        System.out.println(isOnStick((byte) 23,5));
-        System.out.println(canMove((byte) 23,5));
-        printStick(move((byte) 23,5,true));
+        solve((byte) 0,4);
+        System.out.println();
+        unsolve((byte) 15,4);
     }
 }
