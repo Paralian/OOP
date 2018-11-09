@@ -1,63 +1,75 @@
 package Woche4;
 
+import static java.lang.Integer.toBinaryString;
 import static java.lang.Math.*;
 
 public class aufgabeZwei {
-    static boolean isOnStick(byte stick, int pos) {      // pos = [0,7]
-        return ((~stick & (1 << pos)) == (1 << pos));             // invert stick, pass through AND-mask of position
+    static boolean isOnStick(byte stick, int pos) {      // pos = [1,8]
+        return ((~stick & (1 << (pos - 1))) == (1 << (pos - 1)));             // invert stick, pass through AND-mask of position
     }
     
     static boolean canMove(byte stick, int pos) {               // pos movable if pos-1 on and pos-2 to 0 off
-        return (pos == 0) || ((isOnStick(stick, pos - 1)) && (((~stick >>> pos - 1) << pos - 1) == ~stick));     // ~stick & mask == mask?
+        return (pos == 1) || ((isOnStick(stick, pos - 1)) && (((~stick >>> pos - 2) << pos - 2) == ~stick));     // ~stick & mask == mask?
     }
     
     static byte move(byte stick, int pos, boolean on) {
         if (canMove(stick, pos)) {
             if (isOnStick(stick, pos) && !on) {
-                stick = (byte) ~(~stick & ~pos);     // ring on stick & movable -> take ring off
+                stick = (byte) ~(~stick & ~(1 << (pos - 1)));     // ring on stick & movable -> take ring off
             } else {
-                stick = (byte) (stick | pos);       // ring not on stick, stick ringable -> put ring on
+                stick = (byte) (stick | (1 << (pos - 1)));       // ring not on stick, stick ringable -> put ring on
             }
         }
         return stick;
     }
     
     static void printStick(byte stick) {
-        String result = "";
-        int power = 8;
-        while (power >= 0 && stick >= 0) {
-            if (stick - pow(2, power) >= 0) {
-                result = result + "1";                      //  subtraction positive -> top bit = 1
-                stick = (byte) (stick - (pow(2, power)));           //  subtract
-                power--;
-            } else {
-                result = result + "0";                      //  subtraction not positive -> top bit = 0
-                power--;                                    //  try next smaller power of 2
-            }
-        }
-        System.out.println(result);
+        System.out.println(toBinaryString((stick & 0xFF) + 256).substring(1));
     }
     
     static byte solve(byte stick, int rings) {
-        //TODO ???
-        
-        printStick(stick);
-        return stick;
+        if (rings == 1) {
+            stick = move(stick, 1, false);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = move(stick, 2, false);
+            printStick(stick);
+            stick = solve(stick, 1);
+            return stick;
+        } else {
+            stick = solve(stick, rings - 2);
+            stick = move(stick, rings, false);
+            printStick(stick);
+            stick = unsolve(stick, rings - 2);
+            stick = solve(stick, rings - 1);
+            return stick;
+        }
     }
     
     static byte unsolve(byte stick, int rings) {
-        //TODO  ???
-        printStick(stick);
-        return stick;
+        if (rings == 1) {
+            stick = move(stick, 1, true);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = unsolve(stick, 1);
+            stick = move(stick, 2, true);
+            printStick(stick);
+            return stick;
+        } else {
+            stick = unsolve(stick, rings - 1);
+            stick = solve(stick, rings - 2);
+            stick = move(stick, rings, true);
+            printStick(stick);
+            stick = unsolve(stick, rings - 2);
+            return stick;
+        }
     }
     
     public static void main(String[] args) {
-        byte stick[] = {0b00000010, 0b00000011, 0b00001011, 0b00001010, 0b00001000, 0b00001001, 0b00001101, 0b00001100, 0b00001110, 0b00001111};
-        for (int i = 0; i < stick.length; i++) {
-            System.out.println("\n");
-            for (int pos = 0; pos < 8; pos++) {
-                System.out.println(canMove(stick[i], pos));
-            }
-        }
+        solve((byte) 0, 3);
     }
 }
