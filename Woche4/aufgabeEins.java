@@ -6,7 +6,7 @@ public class aufgabeEins {
     static String toBinary(int n) {
         final int BASE = 2;
         String result = "";
-        if (n > 0) {
+        if (n >= 0) {
             int power = (int) (log(n) / log(BASE));             //  get max power of 2 so that pow(2, power) <= n
             while (power >= 0 && n >= 0) {
                 if (n - pow(BASE, power) >= 0) {
@@ -19,7 +19,7 @@ public class aufgabeEins {
                 }
             }
         } else {
-            result = "should be 0 but n is not allowed to be 0 so 42 is the answer";
+            result = "please use toTwosComplement";
         }
         return result;
     }
@@ -27,6 +27,10 @@ public class aufgabeEins {
     static String toOctal(int n) {
         final int BASE = 8;
         String result = "";
+        if (n < 0) {
+            n = n * (-1);
+            result = "-";
+        }
         int power = (int) (log(n) / log(BASE));             //  get max power of 8 so that pow(8, power) <= n
         while (power >= 0 && n >= 0) {
             int i = 0;
@@ -62,18 +66,63 @@ public class aufgabeEins {
             }
         }
         return result;
-}
-
-public static void main(String[]args){
-        int a=42;
-        int b=25;
-        byte c=-128;
-        byte d=5;
+    }
+    
+    //  BONUS: number n in b's base, works for base 2-16
+    
+    /**
+     * converts number n into base b
+     *
+     * @param n number for conversion
+     * @param b base of conversion
+     * @return number n in base b
+     */
+    
+    
+    static String toBaseX(int n, int b) {
+        if (b < 2 || b > 16) {
+            return "INVALID BASE";
+        }
+        final int BASE = b;
+        String result = "";
+        if (n == 0) {
+            return "0";
+        } else if (n < 0) {
+            n = n * -1;
+            result = "-";
+        }
+        int power = (int) (log(n) / log(BASE));             //  get max power of BASE so that pow(BASE, power) <= n
         
-        System.out.println(a+" in binary is: "+toBinary(a));
-        System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n"+
-        "-- Because OCT"+toOctal(b)+" = DEC25");
-        System.out.println(c+" in 2C: "+toTwosComplement(c));
-        System.out.println(d+" in 2C: "+toTwosComplement(d));
+        while (power >= 0 && n >= 0) {
+            char c[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            int i = 0;
+            while (n - pow(BASE, power) >= 0) {
+                i++;                                        //  count how many BASE's there are
+                n = n - ((int) pow(BASE, power));
+            }
+            power--;
+            result = result + c[i];                            //  record the first number, go on for second etc.
         }
-        }
+        
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        int a = 42;
+        int b = 25;
+        int n = -120;
+        byte c = -128;
+        byte d = 5;
+        
+        
+        System.out.println("-42 in BaseX where X is 3: " + toBaseX(-42, 3));
+        System.out.println(a + " in BIN1C is: " + toBinary(a));
+        System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n" +
+                "-- Because OCT" + toOctal(b) + " = DEC25");
+        System.out.println("103 in BIN1C is " + toBinary(103));
+        System.out.println(c + " in BIN2C: " + toTwosComplement(c));
+        System.out.println(d + " in BIN2C: " + toTwosComplement(d));
+        System.out.println(n + " in BIN2C: " + toTwosComplement((byte) n));
+        System.out.println("For comparison with toBinaryString() result: " + Integer.toBinaryString((n & 0xFF) + 256).substring(1));
+    }
+}

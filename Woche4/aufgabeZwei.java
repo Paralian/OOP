@@ -39,23 +39,25 @@ public class aufgabeZwei {
     }
     
     static byte solve(byte stick, int rings) {
-        //TODO  printStick after every step
-        for (int pos = 0; pos<rings; pos++){
-            if
-        }
+        //TODO ???
+        
         printStick(stick);
         return stick;
     }
     
     static byte unsolve(byte stick, int rings) {
-        //TODO  printStick after every step
+        //TODO  ???
+        printStick(stick);
         return stick;
     }
     
     public static void main(String[] args) {
-        byte stick = 0b00000000;
-        for (int pos = 0; pos < 8; pos++) {
-            System.out.println(canMove(stick, pos));
+        byte stick[] = {0b00000010, 0b00000011, 0b00001011, 0b00001010, 0b00001000, 0b00001001, 0b00001101, 0b00001100, 0b00001110, 0b00001111};
+        for (int i = 0; i < stick.length; i++) {
+            System.out.println("\n");
+            for (int pos = 0; pos < 8; pos++) {
+                System.out.println(canMove(stick[i], pos));
+            }
         }
     }
 }
