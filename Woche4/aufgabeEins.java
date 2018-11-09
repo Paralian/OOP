@@ -1,4 +1,9 @@
 public class aufgabeEins {
+    /**
+     * converts the given integer (decimal) to binary form
+     * @param n the integer to be converted
+     * @return binary form of the given integer
+     */
     static String toBinary(int n) {
         String result ="";
         int i = n;
@@ -12,6 +17,11 @@ public class aufgabeEins {
         return result;
     }
 
+    /**
+     * converts the given integer (decimal) to octal form
+     * @param n the integer to be converted
+     * @return octal form of the given integer
+     */
     static String toOctal(int n) {
         String result ="";
         int i = n;
@@ -25,6 +35,11 @@ public class aufgabeEins {
         return result;
     }
 
+    /**
+     * convert the given integer (decimal) to 2'complement form
+     * @param n the integer to be converted
+     * @return 2'complement form of the given integer
+     */
     static String toTwosComplement(byte n) {
         String result = "0" + toBinary(n);
         result = result.replaceAll("-","");

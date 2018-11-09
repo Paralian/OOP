@@ -1,8 +1,20 @@
 public class aufgabeZwei {
+    /**
+     * checks if the ring at the selected position is on the stick
+     * @param stick current state of the stick in byte, e.g (byte) 255 = 11111111
+     * @param pos current selected position
+     * @return true if yes, otherwise false
+     */
     static boolean isOnStick(byte stick, int pos) {
         return ((stick >> (pos - 1)) & 1) == 0;
     }
 
+    /**
+     * checks if the ring at the selected position on the stick can be moved
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @return true if yes, otherwise false
+     */
     static boolean canMove(byte stick, int pos) {
         if (pos == 1) {
             return true;
@@ -15,13 +27,17 @@ public class aufgabeZwei {
                     return false;
                 }
             }
-            if (!isOnStick(stick, pos - 1)) {
-                return  false;
-            }
-            return true;
+            return isOnStick(stick, pos - 1);
         }
     }
 
+    /**
+     * moves the ring at the selected position on the stick if possible
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @param on set to true to insert ring, false to remove
+     * @return state of the stick after moving
+     */
     static byte move(byte stick, int pos, boolean on) {
         if (canMove(stick,pos)) {
             if (!isOnStick(stick,pos) && on) {
@@ -34,10 +50,20 @@ public class aufgabeZwei {
         return stick;
     }
 
+    /**
+     * prints the current state of the stick
+     * @param stick current state of the stick
+     */
     static void printStick(byte stick) {
         System.out.println(Integer.toBinaryString((stick & 0xFF) + 256).substring(1));
     }
 
+    /**
+     * removes the first <rings> rings from the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be removed
+     * @return state of the stick after removing
+     */
     static byte solve(byte stick, int rings) {
         if (rings == 1) {
             stick = move(stick, 1,false);
@@ -59,6 +85,12 @@ public class aufgabeZwei {
         }
     }
 
+    /**
+     * inserts the first <rings> rings to the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be inserted
+     * @return state of the stick after inserting
+     */
     static byte unsolve(byte stick, int rings) {
         if (rings == 1) {
             stick = move(stick, 1,true);
