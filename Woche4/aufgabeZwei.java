@@ -8,7 +8,7 @@ public class aufgabeZwei {
     }
     
     static boolean canMove(byte stick, int pos) {               // pos movable if pos-1 on and pos-2 to 0 off
-        return (((~stick >>> pos) << pos) == ~stick);     // ~stick & mask == mask?
+        return (pos == 0) || ((isOnStick(stick, pos - 1)) && (((~stick >>> pos - 1) << pos - 1) == ~stick));     // ~stick & mask == mask?
     }
     
     static byte move(byte stick, int pos, boolean on) {
@@ -40,6 +40,9 @@ public class aufgabeZwei {
     
     static byte solve(byte stick, int rings) {
         //TODO  printStick after every step
+        for (int pos = 0; pos<rings; pos++){
+        
+        }
         return stick;
     }
     
@@ -49,7 +52,7 @@ public class aufgabeZwei {
     }
     
     public static void main(String[] args) {
-        byte stick = 0b00010111;
+        byte stick = 0b00000000;
         for (int pos = 0; pos < 8; pos++) {
             System.out.println(canMove(stick, pos));
         }
