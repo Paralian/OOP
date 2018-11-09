@@ -1,12 +1,5 @@
 package Woche4;
-public class aufgabeZwei {
-    /**
-     * 1. 1st ring can always be removed/added
-     * 2. if n-2 is removed and n-1 is present then n can be added/removed
-     * 3. 1 ring per move
-     * n-2 -> 0(1) && n-1(0) = n.canMove;
-     */
-    int iCount = 8;
+public class aufgabeZweiIterative {
 
     /**
      *
@@ -77,7 +70,7 @@ public class aufgabeZwei {
      * @return solved board
      */
     static byte solve(byte stick, int rings) { //1111 1111
-        //checks canMove() from left to right, resets bit value
+        //canMove() left to right iteration, switches bit value
         for (int i = rings; i > 0; i--) {
             if (canMove(stick,i)) {
                 if (isOnStick(stick,i)) {
@@ -91,10 +84,11 @@ public class aufgabeZwei {
             }
         }
 
+        //prevents @98 loop after recursion
         if (isSolved(stick, rings)){
             return stick;
         }
-        //resets bit value at pos 0
+        //switches bit value at pos 0
         if (isOnStick(stick,0)){
             stick = move(stick,0,false);
             printStick(stick);
@@ -103,12 +97,19 @@ public class aufgabeZwei {
             printStick(stick);
         }
 
+        //recursion
         if (!isSolved(stick,rings))
             solve(stick, rings);
 
         return stick;
     }
 
+    /**
+     * recursive method for solve()
+     * @param stick current status of the board
+     * @param rings desired position to solve the board to
+     * @return true if the first rings-rings are solved, false otherwise
+     */
     static boolean isSolved(byte stick, int rings){
         for (int i = rings; i >= 0; i--) {
             if (isOnStick(stick,i))
@@ -117,6 +118,12 @@ public class aufgabeZwei {
         return true;
     }
 
+    /**
+     * unsolves the board up to the rings-th position
+     * @param stick current status of the board
+     * @param rings desired position to unsolve the board to
+     * @return unsolved board
+     */
     static byte unsolve(byte stick, int rings) { //1111 1111
         //checks canMove() from left to right, resets bit value
         for (int i = rings; i > 0; i--) {
@@ -151,9 +158,14 @@ public class aufgabeZwei {
         return stick;
     }
 
+    /**
+     * recursive method for unsolve()
+     * @param stick current status of the board
+     * @param rings desired position to solve the board to
+     * @return true if the first rings-rings are unsolved, false otherwise
+     */
     static boolean isUnsolved(byte stick, int rings){
         for (int i = rings; i >= 0; i--) {
-            System.out.print("check pos "+ i + " ");printStick(stick);
             if (!isOnStick(stick,i))
                 return false;
         }
@@ -171,15 +183,15 @@ public class aufgabeZwei {
         int iPos = 4;
 
         int res1 = bTest >> iPos;
-        int res2 = bTest >> iPos & 1;
 
-        String s1 = String.format("%8s", Integer.toBinaryString(bTest & 0xFF)).replace(' ', '0');
+        printStick(bTest);
         String s2 = String.format("%8s", Integer.toBinaryString(res1 & 0xFF)).replace(' ', '0');
-        String s3 = String.format("%8s", Integer.toBinaryString(res2 & 0xFF)).replace(' ', '0');
-        System.out.println(s1);
         System.out.println("BITWISE SHIFT BY "+ iPos +": " + s2);
-        System.out.println("then " + s3);
 
+        /**
+         * isOnStick() TEST CONSOLE
+         */
+        System.out.print("isOnStick() TEST for "); printStick(bTest);
         for (int i = 0; i < 8; i++) {
             System.out.println("POS " + i + " "+ isOnStick(bTest,i));
         }
@@ -188,8 +200,9 @@ public class aufgabeZwei {
          * canMove() TEST CONSOLE
          */
         byte moveTest = (byte) 191;
+        System.out.print("canMove() TEST for ");
         printStick(moveTest);
-        System.out.println("canMove " + canMove(moveTest,7));
+        System.out.println("canMove: " + canMove(moveTest,7));
 
         /**
          * isOnStick(), canMove(), move() TEST CONSOLE
@@ -207,16 +220,15 @@ public class aufgabeZwei {
         System.out.println("moved string: "+s5);
 
         /**
-         * printStick() TEST CONSOLE
+         * printStick() AND solve(), unsolve() TEST CONSOLE
+         * Remove the 2 comments to see the steps in console
          */
-        printStick(bTest2);
-        printStick(res3);
-        /**
-         * solve() AND unsolve() TEST CONSOLE
-         */
-        System.out.println("solve() TEST with ");
-        printStick((byte) 255);
+        System.out.print("solve() TEST with ");
+        printStick((byte) 0);
         //solve((byte) 0,7);
-        unsolve((byte) 255, 7);
+        System.out.print("unsolve() TEST with ");
+        printStick((byte) 255);
+        System.out.println("remember to remove the comments in source code");
+        //unsolve((byte) 255, 7);
     }
 }
