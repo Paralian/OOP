@@ -90,6 +90,10 @@ public class aufgabeZwei {
                 }
             }
         }
+
+        if (isSolved(stick, rings)){
+            return stick;
+        }
         //resets bit value at pos 0
         if (isOnStick(stick,0)){
             stick = move(stick,0,false);
@@ -98,19 +102,62 @@ public class aufgabeZwei {
             stick = move(stick,0,true);
             printStick(stick);
         }
-        System.out.println("TO RECURSION SECTION");
-        int k =rings;
-        while (k >= 0){
-            //TODO: Fix recursion bug
-            System.out.print("pos "+ k + "  ");
-            System.out.print("checking current print  "); printStick(stick);
-            if (isOnStick(stick,k)) {
-                System.out.println("recursing next..");
-                solve(stick, rings);
-            }
-            k--;
-        }
+
+        if (!isSolved(stick,rings))
+            solve(stick, rings);
+
         return stick;
+    }
+
+    static boolean isSolved(byte stick, int rings){
+        for (int i = rings; i >= 0; i--) {
+            if (isOnStick(stick,i))
+                return false;
+        }
+        return true;
+    }
+
+    static byte unsolve(byte stick, int rings) { //1111 1111
+        //checks canMove() from left to right, resets bit value
+        for (int i = rings; i > 0; i--) {
+            if (canMove(stick,i)) {
+                if (isOnStick(stick,i)) {
+                    stick = move(stick,i,false);
+                    printStick(stick);
+                }
+                else {
+                    stick = move(stick,i,true);
+                    printStick(stick);
+                }
+            }
+        }
+
+        if (isUnsolved(stick,rings)){
+            return stick;
+        }
+
+        //resets bit value at pos 0
+        if (isOnStick(stick,0)){
+            stick = move(stick,0,false);
+            printStick(stick);
+        } else {
+            stick = move(stick,0,true);
+            printStick(stick);
+        }
+
+        if (!isUnsolved(stick,rings))
+            unsolve(stick, rings);
+
+        return stick;
+    }
+
+    static boolean isUnsolved(byte stick, int rings){
+        for (int i = rings; i >= 0; i--) {
+            System.out.print("check pos "+ i + " ");printStick(stick);
+            if (!isOnStick(stick,i))
+                return false;
+        }
+        return true;
     }
     /*
         byte unsolve(byte stick, int rings);
@@ -168,7 +215,8 @@ public class aufgabeZwei {
          * solve() AND unsolve() TEST CONSOLE
          */
         System.out.println("solve() TEST with ");
-        printStick((byte) 0);
-        solve((byte) 0,5);
+        printStick((byte) 255);
+        //solve((byte) 0,7);
+        unsolve((byte) 255, 7);
     }
 }
