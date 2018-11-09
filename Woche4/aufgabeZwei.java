@@ -4,7 +4,7 @@ import static java.lang.Math.*;
 
 public class aufgabeZwei {
     static boolean isOnStick(byte stick, int pos) {      // pos = [0,7]
-        return (((stick >> pos) << pos) == (stick));             // invert stick, pass through AND-mask of position
+        return (((stick >>> pos) << pos) == (stick));             // invert stick, pass through AND-mask of position
     }
     
     static boolean canMove(byte stick, int pos) {               // pos movable if pos-1 on and pos-2 to 0 off
