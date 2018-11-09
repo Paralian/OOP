@@ -42,49 +42,38 @@ public class aufgabeEins {
     }
     
     static String toTwosComplement(byte n) {
-        String result = "";
+        String result;
         final int BASE = 2;
         int power = 6;
         if (n >= 0) {
             result = "0";
-            while (power >= 0 && n >= 0) {
-                if (n - pow(BASE, power) >= 0) {
-                    result = result + "1";
-                    n = (byte) (n - (pow(BASE, power)));
-                    power--;
-                } else {
-                    result = result + "0";
-                    power--;
-                }
-            }
-            return result;
         } else {
             n = (byte) (n + 128);
             result = "1";
-            while (power >= 0 && n >= 0) {
-                if (n - pow(BASE, power) >= 0) {
-                    result = result + "1";
-                    n = (byte) (n - (pow(BASE, power)));
-                    power--;
-                } else {
-                    result = result + "0";
-                    power--;
-                }
-            }
-            return result;
         }
-    }
-    
-    public static void main(String[] args) {
-        int a = 42;
-        int b = 25;
-        byte c = -128;
-        byte d = 5;
-        
-        System.out.println(a + " in binary is: " + toBinary(a));
-        System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n" +
-                "-- Because OCT" + toOctal(b) + " = DEC25");
-        System.out.println(c + " in 2C: " + toTwosComplement(c));
-        System.out.println(d + " in 2C: " + toTwosComplement(d));
-    }
+        while (power >= 0 && n >= 0) {
+            if (n - pow(BASE, power) >= 0) {
+                result = result + "1";
+                n = (byte) (n - (pow(BASE, power)));
+                power--;
+            } else {
+                result = result + "0";
+                power--;
+            }
+        }
+        return result;
 }
+
+public static void main(String[]args){
+        int a=42;
+        int b=25;
+        byte c=-128;
+        byte d=5;
+        
+        System.out.println(a+" in binary is: "+toBinary(a));
+        System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n"+
+        "-- Because OCT"+toOctal(b)+" = DEC25");
+        System.out.println(c+" in 2C: "+toTwosComplement(c));
+        System.out.println(d+" in 2C: "+toTwosComplement(d));
+        }
+        }

@@ -41,8 +41,9 @@ public class aufgabeZwei {
     static byte solve(byte stick, int rings) {
         //TODO  printStick after every step
         for (int pos = 0; pos<rings; pos++){
-        
+            if
         }
+        printStick(stick);
         return stick;
     }
     
