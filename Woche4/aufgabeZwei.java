@@ -4,11 +4,11 @@ import static java.lang.Math.*;
 
 public class aufgabeZwei {
     static boolean isOnStick(byte stick, int pos) {      // pos = [0,7]
-        return ((~stick & (1 << pos)) == (1 << pos));             // invert stick, pass through AND-mask of position
+        return (((stick >> pos) << pos) == (stick));             // invert stick, pass through AND-mask of position
     }
     
     static boolean canMove(byte stick, int pos) {               // pos movable if pos-1 on and pos-2 to 0 off
-        return (~stick<<(7-(pos-1)) == 0b10000000);     // ~stick & mask == mask?
+        return (isOnStick(stick,pos-1))&&((stick & (1<<(pos-1)-1)) == (1<<(pos-1)-1));     // ~stick & mask == mask?
     }
     
     static byte move(byte stick, int pos, boolean on) {
@@ -49,10 +49,9 @@ public class aufgabeZwei {
     }
     
     public static void main(String[] args) {
-        byte stick = (byte) 0;
-        int pos = 0;
-        
-        System.out.println(canMove(stick,pos));
-        
+        byte stick = 0b00010111;
+        for (int pos = 0; pos < 8; pos++) {
+            System.out.println(canMove(stick, pos));
+        }
     }
 }
