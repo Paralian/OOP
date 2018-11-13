@@ -1,4 +1,4 @@
-public class aufgabeDrei {
+public class aufgabeDrei_alternativ {
     static boolean isBetween(int value, int lower, int upper) {
         return (value <= upper) && (lower <= value);
     }
