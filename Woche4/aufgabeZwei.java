@@ -1,65 +1,243 @@
-package Woche4;
-
-import static java.lang.Integer.toBinaryString;
-
+<<<<<<< HEAD
 public class aufgabeZwei {
     /**
-     * checks if ring at current position is on the stick
-     * @param stick the playing stick in current state
-     * @param pos position of the pointer, usage: (1<<--pos)
-     * @return TRUE if ring is on stick, otherwise FALSE
+     * checks if the ring at the selected position is on the stick
+     * @param stick current state of the stick in byte, e.g (byte) 255 = 11111111
+     * @param pos current selected position
+     * @return true if yes, otherwise false
      */
-    static boolean isOnStick(byte stick, int pos) {      // pos = [1,8]
-        return ((~stick & (1 << --pos)) == (1 << --pos));             // invert stick, pass through AND-mask of position
+    static boolean isOnStick(byte stick, int pos) {
+        return ((stick >> (pos - 1)) & 1) == 0;
     }
-    
+
     /**
-     * checks if current position is OK for putting a ring on it or taking it off
-     * @param stick the playing stick in current state
-     * @param pos position of the pointer
-     * @return TRUE if current position is suitable for re/moving a ring, FALSE otherwise
+     * checks if the ring at the selected position on the stick can be moved
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @return true if yes, otherwise false
      */
-    static boolean canMove(byte stick, int pos) {               // pos movable if pos-1 on and pos-2 to 0 off
-        return (pos == 1) || ((isOnStick(stick, pos - 1)) && (((~stick >>> pos - 2) << pos - 2) == ~stick));     // ~stick & mask == mask?
+    static boolean canMove(byte stick, int pos) {
+        if (pos == 1) {
+            return true;
+        } else {
+            if ((pos == 2) && !isOnStick(stick,1)) {
+                return false;
+            }
+            for (int i = 1; i < pos - 1; i++) {
+                if (isOnStick(stick, i)) {
+                    return false;
+                }
+            }
+            return isOnStick(stick, pos - 1);
+        }
     }
-    
+
     /**
-     * moves the ring at the set position on or off the ring
-     * @param stick the playing stick in current state
-     * @param pos position of the pointer, usage: (1<<--pos)
-     * @param on TRUE for putting ring on, FALSE for taking ring off
-     * @return stick with new ring or old ring removed
+     * moves the ring at the selected position on the stick if possible
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @param on set to true to insert ring, false to remove
+     * @return state of the stick after moving
      */
     static byte move(byte stick, int pos, boolean on) {
-        if (canMove(stick, pos)) {                              // check if movable
-            if (on) {
-                stick = (byte) (stick & ~(1 << --pos));         // ring on & removable -> take ring off
-            } else {
-                stick = (byte) (stick | (1 << --pos));          // ring off & can be added -> put ring on
+        if (canMove(stick,pos)) {
+            if (!isOnStick(stick,pos) && on) {
+                stick = (byte) (stick & ~(1 << (pos - 1)));
+            }
+            if (isOnStick(stick,pos) && !on) {
+                stick = (byte) (stick | (1 << (pos - 1)));
             }
         }
         return stick;
     }
-    
+
     /**
-     * prints the current state of stick on console
-     * @param stick the stick for printing
+     * prints the current state of the stick
+     * @param stick current state of the stick
      */
     static void printStick(byte stick) {
-        System.out.println(toBinaryString((stick & 0xFF) + 256).substring(1));
+        System.out.println(Integer.toBinaryString((stick & 0xFF) + 256).substring(1));
     }
-    
+
     /**
-     * solves the 00000000 stick into xxxx1111 stick
-     * @param stick the starting stick
-     * @param rings number of rings to be taken off of the stick at n rightmost positions
-     * @return solved stick with n rightmost rings off
+     * removes the first <rings> rings from the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be removed
+     * @return state of the stick after removing
      */
-    
-    
+    static byte solve(byte stick, int rings) {
+        if (rings == 1) {
+            stick = move(stick, 1,false);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = move(stick, 2,false);
+            printStick(stick);
+            stick = solve(stick, 1);
+            return stick;
+        } else {
+            stick = solve(stick,rings - 2);
+            stick = move(stick, rings,false);
+            printStick(stick);
+            stick = unsolve(stick,rings - 2);
+            stick = solve(stick, rings - 1);
+            return stick;
+        }
+    }
+
+    /**
+     * inserts the first <rings> rings to the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be inserted
+     * @return state of the stick after inserting
+     */
+    static byte unsolve(byte stick, int rings) {
+        if (rings == 1) {
+            stick = move(stick, 1,true);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = unsolve(stick, 1);
+            stick = move(stick, 2, true);
+            printStick(stick);
+            return stick;
+        } else {
+            stick = unsolve(stick,rings - 1);
+            stick = solve(stick, rings - 2);
+            stick = move(stick, rings,true);
+            printStick(stick);
+            stick = unsolve(stick, rings - 2);
+            return stick;
+        }
+    }
+
     public static void main(String[] args) {
-    
-        System.out.println("\n");
-        
+        solve((byte) 0,3);
+        System.out.println();
+        unsolve((byte) 15,4);
     }
 }
+=======
+public class aufgabeZwei {
+    /**
+     * checks if the ring at the selected position is on the stick
+     * @param stick current state of the stick in byte, e.g (byte) 255 = 11111111
+     * @param pos current selected position
+     * @return true if yes, otherwise false
+     */
+    static boolean isOnStick(byte stick, int pos) {
+        return ((stick >> (pos - 1)) & 1) == 0;
+    }
+
+    /**
+     * checks if the ring at the selected position on the stick can be moved
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @return true if yes, otherwise false
+     */
+    static boolean canMove(byte stick, int pos) {
+        if (pos == 1) {
+            return true;
+        } else {
+            if ((pos == 2) && !isOnStick(stick,1)) {
+                return false;
+            }
+            for (int i = 1; i < pos - 1; i++) {
+                if (isOnStick(stick, i)) {
+                    return false;
+                }
+            }
+            return isOnStick(stick, pos - 1);
+        }
+    }
+
+    /**
+     * moves the ring at the selected position on the stick if possible
+     * @param stick current state of the stick
+     * @param pos current selected position
+     * @param on set to true to insert ring, false to remove
+     * @return state of the stick after moving
+     */
+    static byte move(byte stick, int pos, boolean on) {
+        if (canMove(stick,pos)) {
+            if (!isOnStick(stick,pos) && on) {
+                stick = (byte) (stick & ~(1 << (pos - 1)));
+            }
+            if (isOnStick(stick,pos) && !on) {
+                stick = (byte) (stick | (1 << (pos - 1)));
+            }
+        }
+        return stick;
+    }
+
+    /**
+     * prints the current state of the stick
+     * @param stick current state of the stick
+     */
+    static void printStick(byte stick) {
+        System.out.println(Integer.toBinaryString((stick & 0xFF) + 256).substring(1));
+    }
+
+    /**
+     * removes the first <rings> rings from the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be removed
+     * @return state of the stick after removing
+     */
+    static byte solve(byte stick, int rings) {
+        if (rings == 1) {
+            stick = move(stick, 1,false);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = move(stick, 2,false);
+            printStick(stick);
+            stick = solve(stick, 1);
+            return stick;
+        } else {
+            stick = solve(stick,rings - 2);
+            stick = move(stick, rings,false);
+            printStick(stick);
+            stick = unsolve(stick,rings - 2);
+            stick = solve(stick, rings - 1);
+            return stick;
+        }
+    }
+
+    /**
+     * inserts the first <rings> rings to the stick
+     * @param stick current state of the stick
+     * @param rings number of rings to be inserted
+     * @return state of the stick after inserting
+     */
+    static byte unsolve(byte stick, int rings) {
+        if (rings == 1) {
+            stick = move(stick, 1,true);
+            printStick(stick);
+            return stick;
+        }
+        if (rings == 2) {
+            stick = unsolve(stick, 1);
+            stick = move(stick, 2, true);
+            printStick(stick);
+            return stick;
+        } else {
+            stick = unsolve(stick,rings - 1);
+            stick = solve(stick, rings - 2);
+            stick = move(stick, rings,true);
+            printStick(stick);
+            stick = unsolve(stick, rings - 2);
+            return stick;
+        }
+    }
+
+    public static void main(String[] args) {
+        solve((byte) 0,3);
+        System.out.println();
+        unsolve((byte) 15,4);
+    }
+}
+>>>>>>> c04ffdb9313c7021d7b694e0ef34a170020edd6b
