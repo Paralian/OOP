@@ -136,6 +136,5 @@ public class aufgabeEins {
         System.out.println(n + " in BIN2C: " + toTwosComplement((byte) n));
         System.out.println("For comparison with toBinaryString() result: " + Integer.toBinaryString((n & 0xFF) + 256).substring(1));
         System.out.println("-42 in BaseX where X is 16: " + toBaseX(-42, 16));
->>>>>>> c04ffdb9313c7021d7b694e0ef34a170020edd6b
     }
 }
