@@ -3,6 +3,13 @@ package Woche5;
 import java.util.Arrays;
 
 public class aufgabeEins {
+    
+    /**
+     * finds the minimal value in a float array
+     *
+     * @param numbers this array
+     * @return the minimum of this array
+     */
     static float getMinimum(float[] numbers) {
         float result = numbers[0];
         for (int i = 0; i < numbers.length; i++) {
@@ -13,12 +20,24 @@ public class aufgabeEins {
         return result;
     }
     
+    /**
+     * finds the maximal value in a float array
+     *
+     * @param numbers this array
+     * @return maximum of this array
+     */
     static float getMaximum(float[] numbers) {
         if (numbers.length <= 2) {
             return (numbers[0] >= numbers[numbers.length - 1] ? numbers[0] : numbers[numbers.length - 1]);
         } else return (getMaximum(Arrays.copyOfRange(numbers, 0, numbers.length - 1)));
     }
     
+    /**
+     * calculates the average value of a float array
+     *
+     * @param numbers this array
+     * @return arithmetic average of this array
+     */
     static float calculateAverage(float[] numbers) {
         float result = 0;
         for (float number :
@@ -29,13 +48,20 @@ public class aufgabeEins {
         
     }
     
+    /**
+     * checks if this float array is sorted, ascending or descending
+     *
+     * @param numbers   this array
+     * @param ascending if TRUE, checks for ascending order of sorting; descending if FALSE
+     * @return TRUE if array is sorted in a set order, FALSE otherwise
+     */
     static boolean isSorted(float[] numbers, boolean ascending) {
         int i = 0;
         boolean result = false;
         if (ascending) {
             while (i <= numbers.length - 2) {
                 result = (numbers[i] <= numbers[i + 1]);
-                if (!result ) break;
+                if (!result) break;
                 i++;
             }
         } else {
@@ -46,7 +72,7 @@ public class aufgabeEins {
             }
         }
         return result;
-}
+    }
     
     public static void main(String[] args) {
         float[] num1sorted = {1, 2, 3, 4, 5};

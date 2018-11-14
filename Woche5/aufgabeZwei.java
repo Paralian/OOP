@@ -3,7 +3,7 @@ package Woche5;
 public class aufgabeZwei {
     
     /**
-     * checks if the board is valid, i.e. every line has the same length
+     * checks if this board is valid, i.e. every line has the same length
      *
      * @param board the playing board
      * @return TRUE if the board is OK, otherwise FALSE
@@ -20,19 +20,19 @@ public class aufgabeZwei {
     }
     
     /**
-     * prints the current state of the board, line for line, X for dead cells and O for alive.
+     * prints current state of this board, line for line, X for dead cells and O for alive.
      *
-     * @param board the boolean array of cells currently alive/dead
-     * @var x = width of the board
-     * @var y = height of the board
+     * @param board boolean array of cells currently alive/dead
+     * @var x = width of board
+     * @var y = height of board
      */
     static void printArray(boolean[][] board) {
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[y].length; x++) {
                 if (board[y][x]) {
-                    System.out.print("O");            // alive
+                    System.out.print("O");            // marks cell as alive
                 } else {
-                    System.out.print("X");            // dead
+                    System.out.print("X");            // marks cell as dead
                 }
             }
             System.out.print("\n");
@@ -40,44 +40,45 @@ public class aufgabeZwei {
     }
     
     /**
-     * counts living neighbors around a certain cell at line Y, row X
+     * counts living neighbors around this cell
      * by setting 8 neighbor cells as combinations of left-right-up-down movement (with diagonal movement like up+right)
      * and checking them for alive cells
      *
      * @param board playing board in current state
      * @param x     row position
      * @param y     line position
-     * @return number of neighbors who are alive in current state of the board
+     * @return number of neighbors who are alive in current state of this board
      */
     static int countLivingNeighbors(boolean[][] board, int x, int y) {
         int neighbors = 0;
         int l, r, u, d;
-        if (x == 0) {                            // check if left cells (L FOR LEFT) are in the boundaries of current line, connect to opposite end
+        if (x == 0) {                            // checks for left cells (L FOR LEFT), connects to opposite end
             l = board[y].length - 1;
         } else
             l = x - 1;
-        if (x == board[y].length - 1) {          // check for right side (R FOR RIGHT), connect to left border if necessary
+        if (x == board[y].length - 1) {          // checks for right side (R FOR RIGHT), connects to left border if necessary
             r = 0;
         } else r = x + 1;
-        if (y == 0) {                            // check for upper cells (U FOR UP), connect to lower border if necessary
+        if (y == 0) {                            // checks for upper cells (U FOR UP), connects to lower border if necessary
             u = board.length - 1;
         } else u = y - 1;
-        if (y == board.length - 1) {             // check for lower cells (D FOR DOWN), connect to top border if necessary
+        if (y == board.length - 1) {             // checks for lower cells (D FOR DOWN), connects to top border if necessary
             d = 0;
         } else d = y + 1;
         
         int[][] hood = {
-                {u, l}, {u, x}, {u, r},         // positions of 8 neighbors on the board: {yPos, xPos}
+                {u, l}, {u, x}, {u, r},                     // sets positions of 8 neighbors on the board: {yPos, xPos}
                 {y, l}, {y, r},
                 {d, l}, {d, x}, {d, r}};
-        for (int cell = 0; cell < 8; cell++) {      // iterate through the 8 positions
-            int yPos = hood[cell][0];
-            int xPos = hood[cell][1];
-            if (board[yPos][xPos] == true) {                 // check if neighbor at yPos/xPos is alive
+        for (int cell = 0; cell < 8; cell++) {              // iterates through the 8 positions
+            /*  yPos = hood[cell][0];
+                xPos = hood[cell][1];
+            */
+            if (board[hood[cell][0]][hood[cell][1]]) {      // checks if neighbor at yPos/xPos is alive
                 neighbors++;
             }
             if (neighbors > 3)
-                break;        // a shortcut for the calculation since you don't depend on any specific # of neighbors over 3
+                break;                 // breaks the calculation since it doesn't depend on any specific # of neighbors over 3
         }
         return neighbors;
     }
