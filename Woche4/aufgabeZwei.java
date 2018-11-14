@@ -113,7 +113,7 @@ public class aufgabeZwei {
     }
 
     public static void main(String[] args) {
-        solve((byte) 0,4);
+        solve((byte) 0,3);
         System.out.println();
         unsolve((byte) 15,4);
     }
