@@ -55,26 +55,10 @@ public class aufgabeZwei {
      * @param rings number of rings to be taken off of the stick at n rightmost positions
      * @return solved stick with n rightmost rings off
      */
-    static byte solve(byte stick, int rings) {
-        if (rings == 1) {
-        
-        }
-        if (rings == 2) {
-        
-        }
-        else {
-            solve(unsolve(stick, rings-2), rings-1);
-            move(stick, rings, false);
-        }
-    }
-    
-    static byte unsolve(byte stick, int rings) {
-        return stick;
-    }
     
     
     public static void main(String[] args) {
-        solve((byte) 0, 8);
+    
         System.out.println("\n");
         
     }
