@@ -1,3 +1,5 @@
+package Woche4;
+
 public class aufgabeZwei {
     /**
      * checks if the ring at the selected position is on the stick

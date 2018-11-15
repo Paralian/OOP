@@ -1,72 +1,72 @@
 Ist das Spielfeld valid? true
-Hier ist das Spielfeld: 
-X O X X X X X X X X 
-X X O X X X X X X X 
-O O O X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Hier ist das Spielfeld:
+X O X X X X X X X X
+X X O X X X X X X X
+O O O X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
 
-Die nächste1-te Generation:
-X X X X X X X X X X 
-O X O X X X X X X X 
-X O O X X X X X X X 
-X O X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Die nï¿½chste (1-te) Generation:
+X X X X X X X X X X
+O X O X X X X X X X
+X O O X X X X X X X
+X O X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
 
-Die nächste2-te Generation:
-X X X X X X X X X X 
-X X O X X X X X X X 
-O X O X X X X X X X 
-X O O X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Die nï¿½chste (2-te) Generation:
+X X X X X X X X X X
+X X O X X X X X X X
+O X O X X X X X X X
+X O O X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
 
-Die nächste3-te Generation:
-X X X X X X X X X X 
-X O X X X X X X X X 
-X X O O X X X X X X 
-X O O X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Die nï¿½chste (3-te) Generation:
+X X X X X X X X X X
+X O X X X X X X X X
+X X O O X X X X X X
+X O O X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
 
-Die nächste4-te Generation:
-X X X X X X X X X X 
-X X O X X X X X X X 
-X X X O X X X X X X 
-X O O O X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Die nï¿½chste (4-te) Generation:
+X X X X X X X X X X
+X X O X X X X X X X
+X X X O X X X X X X
+X O O O X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
 
-Die nächste5-te Generation:
-X X X X X X X X X X 
-X X X X X X X X X X 
-X O X O X X X X X X 
-X X O O X X X X X X 
-X X O X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
-X X X X X X X X X X 
+Die nï¿½chste (5-te) Generation:
+X X X X X X X X X X
+X X X X X X X X X X
+X O X O X X X X X X
+X X O O X X X X X X
+X X O X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
+X X X X X X X X X X
