@@ -54,8 +54,7 @@ public class aufgabeZwei {
         int l, r, u, d;
         if (x == 0) {                            // checks for left cells (L FOR LEFT), connects to opposite end
             l = board[y].length - 1;
-        } else
-            l = x - 1;
+        } else l = x - 1;
         if (x == board[y].length - 1) {          // checks for right side (R FOR RIGHT), connects to left border if necessary
             r = 0;
         } else r = x + 1;
