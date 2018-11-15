@@ -127,7 +127,7 @@ public class conwayGame {
         printArray(board);
         System.out.println();
         for (int i = 1; i < 6; i++) {
-            System.out.println("Die nächste" + i + "-te Generation:");
+            System.out.println("Die nächste (" + i + "-te) Generation:");
             board = calculateNextGeneration(board);
             printArray(board);
             System.out.println();
