@@ -27,14 +27,11 @@ public class aufgabeEins {
      * @return maximum of this array
      */
     static float getMaximum(float[] numbers) {
-        float maximum = (numbers[0] > numbers[numbers.length - 1] ? numbers[0] : numbers[numbers.length - 1]);
-        ;
-        while (numbers.length > 2) {
-            numbers = copyOf(numbers, numbers.length - 1);
-            maximum = (getMaximum(numbers) > maximum ? getMaximum(numbers) : maximum);
-            return maximum;
+        if (numbers.length == 1) {
+            return numbers[0];
         }
-        return maximum;
+        float max = (getMaximum(copyOf(numbers, numbers.length - 1)));
+        return max > numbers[numbers.length - 1] ? max : numbers[numbers.length - 1];
     }
     
     /**
@@ -50,7 +47,6 @@ public class aufgabeEins {
             sum = sum + number;
         }
         return sum / numbers.length;
-        
     }
     
     /**

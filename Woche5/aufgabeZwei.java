@@ -1,24 +1,23 @@
 package Woche5;
 
 public class aufgabeZwei {
-
+    
     /**
      * checks if this board is valid, i.e. every line has the same length
      *
      * @param board the playing board
      * @return TRUE if the board is OK, otherwise FALSE
      */
-
+    
     static boolean isValid(boolean[][] board) {
-        boolean result = false;
-        for (int y = 0; y <= board.length - 2; y++) {
-            if (board[y].length != board[y + 1].length) {
-                return false;                                // if any line is of a different length, get out, no need to check any further
-            } else result = true;                            // if previous check passed, check next
+        for (int y = 0; y < board.length - 1; y++) {
+            if (board[y].length == board[y + 1].length) {       // if previous check passed, check next
+                continue;
+            } else return false;                                // if any line is of a different length, get out, no need to check any further
         }
-        return result;
+        return true;
     }
-
+    
     /**
      * prints current state of this board, line for line, X for dead cells and O for alive.
      *
@@ -29,16 +28,12 @@ public class aufgabeZwei {
     static void printArray(boolean[][] board) {
         for (int y = 0; y < board.length; y++) {
             for (int x = 0; x < board[y].length; x++) {
-                if (board[y][x]) {
-                    System.out.print("O");            // marks cell as alive
-                } else {
-                    System.out.print("X");            // marks cell as dead
-                }
+                System.out.print(board[y][x] ? "O" : "X");    // marks cell as alive or dead
             }
             System.out.print("\n");
         }
     }
-
+    
     /**
      * counts living neighbors around this cell
      * by setting 8 neighbor cells as combinations of left-right-up-down movement (with diagonal movement like up+right)
@@ -64,7 +59,7 @@ public class aufgabeZwei {
         if (y == board.length - 1) {             // checks for lower cells (D FOR DOWN), connects to top border if necessary
             d = 0;
         } else d = y + 1;
-
+        
         int[][] hood = {
                 {u, l}, {u, x}, {u, r},                     // sets positions of 8 neighbors on the board: {yPos, xPos}
                 {y, l}, {y, r},
@@ -81,7 +76,7 @@ public class aufgabeZwei {
         }
         return neighbors;
     }
-
+    
     /**
      * calculates the next state of current cell via calculating the number of living neighbors
      * and setting a cell to "alive" if there are exactly 3 living neighbors,
@@ -105,7 +100,7 @@ public class aufgabeZwei {
         }
         return nextState;
     }
-
+    
     /**
      * looks at every cell on current board, determines its next state using nextState()
      * and returns the next board with all cells in their new state
@@ -123,7 +118,7 @@ public class aufgabeZwei {
         board = nextBoard;
         return board;
     }
-
+    
     /**
      * wraps the methods for playing n cycles (generations) off of a set board
      *
@@ -142,7 +137,7 @@ public class aufgabeZwei {
             }
         } else System.out.println("INVALID BOARD");
     }
-
+    
     /**
      * creates boards from binary arrays consisting of 0s and 1s
      *
@@ -162,14 +157,14 @@ public class aufgabeZwei {
         }
         return board;
     }
-
+    
     public static void main(String[] args) {
         /*
             for simplicity first a binary board is made and then converted into boolean.
             that way it can be edited without the hassle of spelling true/false every time
             and having a misaligned 2D array.
          */
-
+        
         int[][] binBoard =
                 {
                         {0, 0, 1, 0, 0, 0, 0, 0, 0, 0},
@@ -183,7 +178,7 @@ public class aufgabeZwei {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 };
-
+        
         boolean[][] board = constructBoard(binBoard);
         play(5, board);
     }
