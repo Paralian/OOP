@@ -40,8 +40,8 @@ public class aufgabeZwei {
      * and checking them for alive cells
      *
      * @param board playing board in current state
-     * @param x     row position
-     * @param y     line position
+     * @param x     column position
+     * @param y     row position
      * @return number of neighbors who are alive in current state of this board
      */
     static int countLivingNeighbors(boolean[][] board, int x, int y) {
