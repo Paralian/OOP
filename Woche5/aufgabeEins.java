@@ -8,7 +8,7 @@ public class aufgabeEins {
      * finds the minimal value in a float array
      *
      * @param numbers this array
-     * @return the minimum of this array
+     * @return minimum of this array
      */
     static float getMinimum(float[] numbers) {
         float result = numbers[0];
