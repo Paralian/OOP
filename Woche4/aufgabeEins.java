@@ -5,8 +5,9 @@ import static java.lang.Math.*;
 public class aufgabeEins {
     /**
      * converts a positive decimal integer into a simple binary number
+     *
      * @param n decimal integer to convert
-     * @return  converted binary number
+     * @return converted binary number
      */
     static String toBinary(int n) {
         final int BASE = 2;
@@ -31,6 +32,7 @@ public class aufgabeEins {
 
     /**
      * converts a decimal integer into a number in base 8
+     *
      * @param n decimal integer to convert
      * @return converted octal number
      */
@@ -57,6 +59,7 @@ public class aufgabeEins {
 
     /**
      * converts a decimal integer into a binary number in two's complement with 8 bits total
+     *
      * @param n decimal integer to convert
      * @return converted binary number in two's complement
      */
@@ -84,8 +87,10 @@ public class aufgabeEins {
     }
 
     //  BONUS: number n in b's base, works for base 2-16
+
     /**
      * converts a decimal integer into any base 2-16
+     *
      * @param n decimal integer for conversion
      * @param b base of conversion
      * @return converted number n in base b
