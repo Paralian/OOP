@@ -1,0 +1,2 @@
+First move file Vector3D.java to D: , then on Command Prompt type:
+D:\>javac Vector3D.java
