@@ -36,7 +36,7 @@ public class Vector3D {
     }
 
     /**
-     * adds this vector with a given vector
+     * adds a given vector to this vector
      * @param vector is the given vector
      * @return the sum of two vectors
      */
@@ -45,7 +45,7 @@ public class Vector3D {
     }
 
     /**
-     * subtracts this vector with a given vector
+     * subtracts a given vector from this vector
      * @param vector is the given vector
      * @return the difference between two vectors
      */
@@ -70,18 +70,22 @@ public class Vector3D {
     }
 
     public static void main(String[] args) {
-        Vector3D vector = new Vector3D(2, 4, 3);
+        Vector3D vector = new Vector3D(3, 4, 12);
+        Vector3D testVector = new Vector3D(1, 1, 1);
+        System.out.print("This vector: ");
         vector.print();
+        System.out.print("Test vector: ");
+        testVector.print();
         System.out.println("Length of vector: " + vector.length());
         System.out.print("Scale this vector by 5: ");
         vector.scale(5).print();
         System.out.print("Normalize this vector: ");
         vector.norm().print();
-        System.out.print("Add this vector to itself: ");
-        vector.add(vector).print();
-        System.out.print("Subtract this vector from itself: ");
-        vector.sub(vector).print();
-        System.out.print("Calculate the cross product of  this vector with (1, 1, 1): ");
-        vector.crossProduct(new Vector3D(1, 1, 1)).print();
+        System.out.print("Add the test vector to this vector: ");
+        vector.add(testVector).print();
+        System.out.print("Subtract the test vector from this vector: ");
+        vector.sub(testVector).print();
+        System.out.print("Calculate the cross product of this vector with the test vector: ");
+        vector.crossProduct(testVector).print();
     }
 }
