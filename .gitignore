@@ -2,3 +2,4 @@
 out/
 .iml
 *.class
+!*Woche6/Vector3D.class
