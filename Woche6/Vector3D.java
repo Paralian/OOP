@@ -73,15 +73,15 @@ public class Vector3D {
         Vector3D vector = new Vector3D(2, 4, 3);
         vector.print();
         System.out.println("Length of vector: " + vector.length());
-        System.out.print("Vector scaled by 5: ");
+        System.out.print("Scale this vector by 5: ");
         vector.scale(5).print();
-        System.out.print("Vector normalized: ");
+        System.out.print("Normalize this vector: ");
         vector.norm().print();
-        System.out.print("Vector added to vector scaled by 5: ");
-        vector.add(vector.scale(5)).print();
-        System.out.print("Vectors subtracted from vector scaled by 5: ");
-        vector.sub(vector.scale(5)).print();
-        System.out.print("Cross product of vector with (1, 1, 1): ");
+        System.out.print("Add this vector to itself: ");
+        vector.add(vector).print();
+        System.out.print("Subtract this vector from itself: ");
+        vector.sub(vector).print();
+        System.out.print("Calculate the cross product of  this vector with (1, 1, 1): ");
         vector.crossProduct(new Vector3D(1, 1, 1)).print();
     }
 }
