@@ -71,16 +71,17 @@ public class Vector3D {
 
     public static void main(String[] args) {
         Vector3D vector = new Vector3D(2, 4, 3);
+        vector.print();
         System.out.println("Length of vector: " + vector.length());
-        System.out.print("Vector scaled: ");
+        System.out.print("Vector scaled by 5: ");
         vector.scale(5).print();
         System.out.print("Vector normalized: ");
         vector.norm().print();
-        System.out.print("Vector added to self: ");
-        vector.add(vector).print();
-        System.out.print("Vectors subtracted from self: ");
-        vector.sub(vector).print();
-        System.out.print("Cross product of vector with self: ");
-        vector.crossProduct(vector).print();
+        System.out.print("Vector added to vector scaled by 5: ");
+        vector.add(vector.scale(5)).print();
+        System.out.print("Vectors subtracted from vector scaled by 5: ");
+        vector.sub(vector.scale(5)).print();
+        System.out.print("Cross product of vector with (1, 1, 1): ");
+        vector.crossProduct(new Vector3D(1, 1, 1)).print();
     }
 }
