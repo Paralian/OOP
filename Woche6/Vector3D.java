@@ -16,7 +16,7 @@ public class Vector3D {
     }
     
     double length() {
-        return sqrt(pow(sqrt(pow(x, 2) + pow(y, 2)), 2) + pow(z, 2));
+        return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
     }
     
     Vector3D scale(double a) {
@@ -46,7 +46,8 @@ public class Vector3D {
     }
     
     //Kreuzprodukt
-    //TODO: check if this shit makes sense
+    //TODO: check if this shit makes sense 
+    //https://de.wikipedia.org/wiki/Kreuzprodukt#Komponentenweise_Berechnung
     Vector3D crossProduct(Vector3D vector) {
         double mx = this.x * vector.x;
         double my = this.y * vector.y;
