@@ -1,6 +1,7 @@
 */**/workspace.xml
 .idea
 out/
-*/**/*.iml
-*.iml
+.iml
 *.class
+!*Woche6/*.class
+!*Woche7/*.class
