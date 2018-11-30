@@ -1,7 +1,6 @@
 import de.uni.marburg.oop.notifications.NotificationCenter;
-
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class JavaAPI {
     /**
@@ -10,6 +9,7 @@ public class JavaAPI {
      */
     public static String tossCoin() {
         double face = Math.random();
+        System.out.println(face);
         return (face >= 0.5) ? "Kopf" : "Zahl";
     }
 
@@ -20,8 +20,15 @@ public class JavaAPI {
      * @return the time difference between these dates in hours
      */
     public static int getTimeDifference(Calendar a, Calendar b) {
-        long hoursBetween = ChronoUnit.HOURS.between(a.toInstant(),b.toInstant());
-        return (int) hoursBetween;
+        long time1 = a.getTimeInMillis();
+        long time2 = b.getTimeInMillis();
+        long time;
+        if (time1 > time2) {
+            time = time1 - time2;
+        } else {
+            time = time2 - time1;
+        }
+        return (int) (time / (1000 * 60 * 60));
     }
 
     /**
@@ -36,6 +43,6 @@ public class JavaAPI {
     }
 
     public static void main(String[] args) {
-        NotificationCenter.showMessage("Return values of methods", tossCoin() + ", " + getTimeDifference(Calendar.getInstance(), Calendar.getInstance()) + ", " + emi(0.07, 5, 50000));
+        NotificationCenter.showMessage("Return values of methods", tossCoin() + ", " + getTimeDifference(new GregorianCalendar(2018, 12, 16), new GregorianCalendar(2018, 12, 15)) + ", " + emi(0.07, 5, 50000));
     }
 }
