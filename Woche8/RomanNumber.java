@@ -5,6 +5,10 @@ public class RomanNumber implements Number {
         this.romanNumber = romanNumber;
     }
 
+    public String getRomanNumber() {
+        return romanNumber;
+    }
+
     /**
      * @return the value of the instance in int
      */
