@@ -1,12 +1,12 @@
 public class RomanNumber implements Number {
     String romanNumber;
 
+    /**
+     * Constructor
+     * @param romanNumber is the value to be initialised
+     */
     public RomanNumber(String romanNumber) {
         this.romanNumber = romanNumber;
-    }
-
-    public String getRomanNumber() {
-        return romanNumber;
     }
 
     /**

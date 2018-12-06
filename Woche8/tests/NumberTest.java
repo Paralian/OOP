@@ -6,37 +6,37 @@ class NumberTest {
 
     @Test
     void add() {
-        Number test = new RomanNumber("XX");
+        RomanNumber test = new RomanNumber("XX");
         test.add(new RomanNumber("V"));
-        assertEquals("XXV", ((RomanNumber) test).getRomanNumber());
+        assertEquals("XXV", test.romanNumber);
         test.add(new RomanNumber("C"));
-        assertEquals("CXXV", ((RomanNumber) test).getRomanNumber());
+        assertEquals("CXXV", test.romanNumber);
     }
 
     @Test
     void subtract() {
-        Number test = new RomanNumber("XX");
+        RomanNumber test = new RomanNumber("XX");
         test.subtract(new RomanNumber("V"));
-        assertEquals("XV", ((RomanNumber) test).getRomanNumber());
+        assertEquals("XV", test.romanNumber);
         test.subtract(new RomanNumber("IIII"));
-        assertEquals("XI", ((RomanNumber) test).getRomanNumber());
+        assertEquals("XI", test.romanNumber);
     }
 
     @Test
     void multiply() {
-        Number test = new RomanNumber("XX");
+        RomanNumber test = new RomanNumber("XX");
         test.multiply(new RomanNumber("V"));
-        assertEquals("C", ((RomanNumber) test).getRomanNumber());
+        assertEquals("C", test.romanNumber);
         test.multiply(new RomanNumber("X"));
-        assertEquals("M", ((RomanNumber) test).getRomanNumber());
+        assertEquals("M", test.romanNumber);
     }
 
     @Test
     void divide() {
-        Number test = new RomanNumber("XX");
+        RomanNumber test = new RomanNumber("XX");
         test.divide(new RomanNumber("V"));
-        assertEquals("IIII", ((RomanNumber) test).getRomanNumber());
+        assertEquals("IIII", test.romanNumber);
         test.divide(new RomanNumber("IIII"));
-        assertEquals("I", ((RomanNumber) test).getRomanNumber());
+        assertEquals("I", test.romanNumber);
     }
 }
