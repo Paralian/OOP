@@ -22,11 +22,7 @@ public class StringOperation {
      * @return true if yes, else false
      */
     static boolean isPalindrome(String string) {
-        String modifiedString = string.toUpperCase();
-        String[] puncMarkArr = new String[]{" ", ".", "?", "!", ",", ";", ":", "\"", "'"};
-        for (String puncMark : puncMarkArr) {
-            modifiedString = replace(modifiedString, puncMark, "");
-        }
+        String modifiedString = string.toUpperCase().replaceAll("[^A-Za-z0-9]", "");
         return modifiedString.equals(new String(new StringBuilder(modifiedString).reverse()));
     }
 
