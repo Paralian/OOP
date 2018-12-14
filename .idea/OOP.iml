@@ -13,6 +13,7 @@
       <sourceFolder url="file://$MODULE_DIR$/Woche7/de/umr/swt/oop/ue7/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/Woche8" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Woche8/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/Woche9" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

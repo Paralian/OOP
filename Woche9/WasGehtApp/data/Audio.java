@@ -5,7 +5,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 
-public class Audio implements Data {
+public class Audio implements data.Data {
 
     /**
      * Plays the audio file.

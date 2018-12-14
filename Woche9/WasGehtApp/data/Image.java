@@ -1,6 +1,6 @@
 package data;
 
-public class Image implements Data {
+public class Image implements data.Data {
 
     @Override
     public String prettyPrint() {
