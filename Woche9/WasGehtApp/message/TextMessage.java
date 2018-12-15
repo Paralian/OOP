@@ -1,4 +1,4 @@
-package WasGehtApp.message;
+package message;
 
 import user.User;
 
@@ -26,6 +26,6 @@ public class TextMessage extends AbstractMessage {
      * @return the pretty printed representation as string
      */
     public String prettyPrint() {
-        return "Sender: " + getSender() + " -> " + "Recipient " + getRecipient() + ": " + getTransferRepresentation();
+        return getSender().getUserName() + " -> " + getRecipient().getUserName() + ": " + getTransferRepresentation();
     }
 }

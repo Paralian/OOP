@@ -12,7 +12,7 @@ public class Audio implements data.Data {
      */
     public void play() {
         try {
-            File soundFile = new File( "bin" );
+            File soundFile = new File( "WasGehtApp/bin/*.wav");
             Clip clip = AudioSystem.getClip();
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(soundFile);
 

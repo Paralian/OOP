@@ -1,9 +1,9 @@
-package WasGehtApp.message;
+package message;
 
 import data.Data;
 import user.User;
 
-abstract class AbstractDataMessage extends AbstractMessage implements message.DataMessage {
+abstract class AbstractDataMessage extends AbstractMessage implements DataMessage {
     private data.Data data;
 
     /**
@@ -30,6 +30,14 @@ abstract class AbstractDataMessage extends AbstractMessage implements message.Da
     @Override
     public String prettyPrint() {
         return getTransferRepresentation() + " " + data.prettyPrint();
+    }
+
+    /**
+     * Returns the information about the data object.
+     * @return a String describing the data object
+     */
+    public String getMediaInfo() {
+        return null;
     }
 
     /**

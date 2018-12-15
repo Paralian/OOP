@@ -7,5 +7,4 @@ public interface Data {
      * @return the string representation
      */
     String prettyPrint();
-
 }

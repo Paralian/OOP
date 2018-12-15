@@ -1,10 +1,9 @@
-package WasGehtApp.network;
+package network;
 
-import WasGehtApp.message.AudioMessage;
-import WasGehtApp.message.ImageMessage;
-import WasGehtApp.message.TextMessage;
+import message.AudioMessage;
+import message.ImageMessage;
 import message.Message;
-import network.Node;
+import message.TextMessage;
 import user.User;
 
 public class Client implements Node {
@@ -28,18 +27,18 @@ public class Client implements Node {
         node.receive(message);
     }
 
-    public void send(User sender, User recipient, data.Data data, data.Audio audio)  {
-        AudioMessage audioMessage = new AudioMessage(sender, recipient, data, audio);
+    public void send(User recipient, data.Data data, data.Audio audio)  {
+        AudioMessage audioMessage = new AudioMessage(user, recipient, data, audio);
         send(audioMessage);
     }
 
-    public void send(User sender, User recipient, data.Data data, data.Image image, String description)  {
-        ImageMessage imageMessage = new ImageMessage(sender, recipient, data, image, description);
+    public void send(User recipient, data.Data data, data.Image image, String description)  {
+        ImageMessage imageMessage = new ImageMessage(user, recipient, data, image, description);
         send(imageMessage);
     }
 
-    public void send(User sender, User recipient, String transferRepresentation)  {
-        TextMessage textMessage = new TextMessage(sender, recipient, transferRepresentation);
+    public void send(User recipient, String transferRepresentation)  {
+        TextMessage textMessage = new TextMessage(user, recipient, transferRepresentation);
         send(textMessage);
     }
 

@@ -1,4 +1,4 @@
-package WasGehtApp.message;
+package message;
 
 import data.Data;
 import data.Image;
@@ -6,15 +6,15 @@ import user.User;
 
 public class ImageMessage extends AbstractDataMessage {
     private Image image;
-    private String description;
+    private String mediaInfo;
 
     /**
      * Constructor
      */
-    public ImageMessage(User sender, User recipient, Data data, Image image, String description) {
+    public ImageMessage(User sender, User recipient, Data data, Image image, String mediaInfo) {
         super(sender, recipient, data);
         this.image = image;
-        this.description = description;
+        this.mediaInfo = mediaInfo;
     }
 
     /**
@@ -23,6 +23,6 @@ public class ImageMessage extends AbstractDataMessage {
      */
     @Override
     public String getMediaInfo() {
-        return description;
+        return mediaInfo;
     }
 }

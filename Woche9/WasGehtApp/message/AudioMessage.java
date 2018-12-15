@@ -1,4 +1,4 @@
-package WasGehtApp.message;
+package message;
 
 import data.Audio;
 import data.Data;
@@ -13,15 +13,6 @@ public class AudioMessage extends AbstractDataMessage {
     public AudioMessage(User sender, User recipient, Data data, Audio audio) {
         super(sender, recipient, data);
         this.audio = audio;
-    }
-
-    /**
-     * Returns the information about the data object.
-     * @return a String describing the data object
-     */
-    @Override
-    public String getMediaInfo() {
-        return null;
     }
 
     /**

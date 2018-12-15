@@ -1,8 +1,8 @@
-package WasGehtApp.message;
+package message;
 
 import user.User;
 
-abstract class AbstractMessage implements message.Message {
+abstract class AbstractMessage implements Message {
     private final user.User sender, recipient;
 
     /**
