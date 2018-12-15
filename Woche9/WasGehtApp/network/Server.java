@@ -19,18 +19,17 @@ public class Server implements Node {
 
     @Override
     public void send(Message message) {
-        for (int i = 0; i < clients.length; i++) {
+        for (int i = 0; i < numberOfClients; i++) {
             if (message.getRecipient().equals(clients[i].getUser())) {
                 clients[i].receive(message);
                 return;
             }
         }
-        System.out.println("Invalid Recipient!");
     }
 
     @Override
-    public void connect(Node receiver) throws Exception {
-        for (int i = 0; i < clients.length; i++){
+    public void connect(Node receiver) {
+        for (int i = 0; i < numberOfClients; i++){
             if (clients[i] == null) {
                 clients[i] = receiver;
                 break;

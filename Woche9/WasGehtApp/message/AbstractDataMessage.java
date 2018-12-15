@@ -37,7 +37,7 @@ abstract class AbstractDataMessage extends AbstractMessage implements DataMessag
      * @return a String describing the data object
      */
     public String getMediaInfo() {
-        return null;
+        return "Unavailable Media Info";
     }
 
     /**

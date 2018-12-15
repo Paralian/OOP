@@ -32,8 +32,8 @@ public class Client implements Node {
         send(audioMessage);
     }
 
-    public void send(User recipient, data.Data data, data.Image image, String description)  {
-        ImageMessage imageMessage = new ImageMessage(user, recipient, data, image, description);
+    public void send(User recipient, data.Data data, data.Image image, String mediaInfo)  {
+        ImageMessage imageMessage = new ImageMessage(user, recipient, data, image, mediaInfo);
         send(imageMessage);
     }
 

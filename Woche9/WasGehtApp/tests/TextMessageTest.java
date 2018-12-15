@@ -6,9 +6,9 @@ import user.User;
 import static org.junit.Assert.*;
 
 public class TextMessageTest {
-    Client client1 = new Client(new User(101, "Jedi Master", "Obi-Wan", "Kenobi"));
-    Client client2 = new Client(new User(102, "General", "Grievous", ""));
-    TextMessage textMessage = new TextMessage(client1.getUser(), client2.getUser(), "Hello there.");
+    private Client client1 = new Client(new User(101, "Jedi Master", "Obi-Wan", "Kenobi"));
+    private Client client2 = new Client(new User(102, "General", "Grievous", ""));
+    private TextMessage textMessage = new TextMessage(client1.getUser(), client2.getUser(), "Hello there.");
 
     @Test
     public void getTransferRepresentation() {

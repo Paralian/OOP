@@ -4,16 +4,15 @@ import message.AudioMessage;
 import network.Client;
 import org.junit.Test;
 import user.User;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertNull;
 
 public class AudioMessageTest {
-    Client client1 = new Client(new User(101, "Commissioner", "James", "Gordon"));
-    Client client2 = new Client(new User(102, "Batman", "Bruce", "Wayne"));
-    Data data = new Audio();
-    Audio audio = new Audio();
-    AudioMessage audioMessage = new AudioMessage(client1.getUser(), client2.getUser(), data, audio);
+    private Client client1 = new Client(new User(101, "Commissioner", "James", "Gordon"));
+    private Client client2 = new Client(new User(102, "Batman", "Bruce", "Wayne"));
+    private Data data = new Audio();
+    private Audio audio = new Audio();
+    private AudioMessage audioMessage = new AudioMessage(client1.getUser(), client2.getUser(), data, audio);
 
     @Test
     public void playVoiceMessage() {
@@ -33,7 +32,7 @@ public class AudioMessageTest {
 
     @Test
     public void getMediaInfo() {
-        assertEquals(null, audioMessage.getMediaInfo());
+        assertNull(audioMessage.getMediaInfo());
     }
 
     @Test
