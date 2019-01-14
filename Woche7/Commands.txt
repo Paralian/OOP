@@ -1,0 +1,5 @@
+javac -cp Notifications.jar JavaAPI.java
+
+gilt nur wenn Notifications.jar denselben Pfad wie JavaAPI.java hat, sonst:
+
+javac -cp .;..\<Path of the Notifications.jar file>\Notifications.jar JavaAPI.java
