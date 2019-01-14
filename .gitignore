@@ -1,8 +1,12 @@
-.idea/workspace.xml
+
+*/**/workspace.xml
+.idea
 out/
 .iml
 *.class
-/.idea/
+!*Woche6/*.class
+!*Woche7/*.class
+
 .idea/OOP.iml
 .idea/encodings.xml
 .idea/misc.xml
