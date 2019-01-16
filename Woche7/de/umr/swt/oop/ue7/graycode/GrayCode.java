@@ -18,13 +18,10 @@ public class GrayCode {
             this.grayCode = new String[]{"0", "1"};
         } else {
             GrayCode temp = new GrayCode(codeLength - 1);
-            String[] mirroredTemp = new String[temp.getGrayCode().length];
             String[] result = new String[(int) Math.pow(2, codeLength)];
             for (int i = 0; i < temp.getGrayCode().length; i++) {
-                mirroredTemp[mirroredTemp.length - 1 - i] = "1" + temp.getGrayCode()[i];
-                temp.getGrayCode()[i] = "0" + temp.getGrayCode()[i];
-                result[i] = temp.getGrayCode()[i];
-                result[result.length - 1 - i] = mirroredTemp[mirroredTemp.length - 1 - i];
+                result[i] = "0" + temp.getGrayCode()[i];
+                result[result.length - 1 - i] = "1" + temp.getGrayCode()[i];
             }
             this.grayCode = result;
             resetSearchArea();
