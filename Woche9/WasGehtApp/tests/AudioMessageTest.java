@@ -22,17 +22,17 @@ public class AudioMessageTest {
 
     @Test
     public void getTransferRepresentation() {
-        assertEquals("data.Audio " + null + " " + data, audioMessage.getTransferRepresentation());
+        assertEquals("data.Audio " + "Unavailable Media Info" + " " + data, audioMessage.getTransferRepresentation());
     }
 
     @Test
     public void prettyPrint() {
-        assertEquals("data.Audio " + null + " " + data + " " + "Here's to Adam.", audioMessage.prettyPrint());
+        assertEquals("data.Audio " + "Unavailable Media Info" + " " + data + " " + "Here's to Adam.", audioMessage.prettyPrint());
     }
 
     @Test
     public void getMediaInfo() {
-        assertNull(audioMessage.getMediaInfo());
+        assertEquals("Unavailable Media Info",audioMessage.getMediaInfo());
     }
 
     @Test
