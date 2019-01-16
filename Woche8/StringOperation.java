@@ -11,7 +11,7 @@ public class StringOperation {
         int i = source.indexOf(search);
         while (i != -1) {
             result = result.substring(0, i) + replace + result.substring(i + search.length());
-            i = result.indexOf(search,i+search.length());
+            i = result.indexOf(search,i + replace.length());
         }
         return result;
     }

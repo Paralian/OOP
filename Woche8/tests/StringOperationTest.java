@@ -10,7 +10,7 @@ class StringOperationTest {
         assertEquals("The Adventures of Tom Lawyer", StringOperation.replace("The Adventures of Tom Sawyer", "S", "L"));
         assertEquals("Petty Woman", StringOperation.replace("Pretty Woman", "r", ""));
         assertEquals("True Grit", StringOperation.replace("True Grit", "R", ""));
-        assertEquals("abcc", StringOperation.replace("abc", "b", "bc"));
+        assertEquals("acbc", StringOperation.replace("abc", "b", "cb"));
     }
 
     @Test
