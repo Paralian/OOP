@@ -29,7 +29,7 @@ public class aufgabeEins {
         }
         return result;
     }
-
+    
     /**
      * converts a decimal integer into a number in base 8
      *
