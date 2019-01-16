@@ -1,66 +1,91 @@
-package Woche6;
-
-import static java.lang.Math.*;
-
 public class Vector3D {
-    
-    double x;
-    double y;
-    double z;
-    
-    Vector3D(double x, double y, double z) {
+    private double x, y, z;
+
+    /**
+     * Constructor of Class Vector3D
+     */
+    private Vector3D(double x, double y, double z) {
         this.x = x;
         this.y = y;
         this.z = z;
-        
     }
-    
-    double length() {
-        return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2));
+
+    /**
+     * calculates the length of this vector
+     * @return the length of the vector
+     */
+    private double length() {
+        return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
     }
-    
-    Vector3D scale(double a) {
+
+    /**
+     * scales this vector with a given aspect ratio
+     * @param a is the given aspect ratio
+     * @return the scaled vector
+     */
+    private Vector3D scale(double a) {
         return new Vector3D(x * a, y * a, z * a);
     }
-    
-    //normalize vector, return a new vector with length == 1
-    Vector3D norm() {
-        double l = this.length();
-        
+
+    /**
+     * normalizes this vector
+     * @return the normalized vector
+     */
+    private Vector3D norm() {
+        return scale(1.0 / length());
     }
-    
-    //komponentenweise Addition
-    Vector3D add(Vector3D vector) {
-        double sx = this.x + vector.x;
-        double sy = this.y + vector.y;
-        double sz = this.z + vector.z;
-        return new Vector3D(sx, sy, sz);
+
+    /**
+     * adds a given vector to this vector
+     * @param vector is the given vector
+     * @return the sum of two vectors
+     */
+    private Vector3D add(Vector3D vector) {
+        return new Vector3D(x + vector.x, y + vector.y, z + vector.z);
     }
-    
-    //komponentenweise Subtraktion
-    Vector3D sub(Vector3D vector) {
-        double dx = this.x - vector.x;
-        double dy = this.y - vector.y;
-        double dz = this.z - vector.z;
-        return new Vector3D(dx, dy, dz);
+
+    /**
+     * subtracts a given vector from this vector
+     * @param vector is the given vector
+     * @return the difference between two vectors
+     */
+    private Vector3D sub(Vector3D vector) {
+        return new Vector3D(x - vector.x, y - vector.y, z - vector.z);
     }
-    
-    //Kreuzprodukt
-    //TODO: check if this shit makes sense 
-    //https://de.wikipedia.org/wiki/Kreuzprodukt#Komponentenweise_Berechnung
-    Vector3D crossProduct(Vector3D vector) {
-        double mx = this.x * vector.x;
-        double my = this.y * vector.y;
-        double mz = this.z * vector.z;
-        return new Vector3D(mx, my, mz);
+
+    /**
+     * find the cross product of this vector with a given vector
+     * @param vector is the given vector
+     * @return the cross product of two vectors
+     */
+    private Vector3D crossProduct(Vector3D vector) {
+        return new Vector3D(y * vector.z - z * vector.y, z * vector.x - x * vector.z, x * vector.y - y * vector.x);
     }
-    
-    void print() {
-        System.out.print("X = " + x + "\nY = " + y + "\nZ = " + z);
+
+    /**
+     * prints the coordinates of this vector
+     */
+    private void print() {
+        System.out.println("(" + x + ", " + y + ", " + z + ")");
     }
-    
+
     public static void main(String[] args) {
-    
+        Vector3D vector = new Vector3D(3, 4, 12);
+        Vector3D testVector = new Vector3D(1, 1, 1);
+        System.out.print("This vector: ");
+        vector.print();
+        System.out.print("Test vector: ");
+        testVector.print();
+        System.out.println("Length of vector: " + vector.length());
+        System.out.print("Scale this vector by 5: ");
+        vector.scale(5).print();
+        System.out.print("Normalize this vector: ");
+        vector.norm().print();
+        System.out.print("Add the test vector to this vector: ");
+        vector.add(testVector).print();
+        System.out.print("Subtract the test vector from this vector: ");
+        vector.sub(testVector).print();
+        System.out.print("Calculate the cross product of this vector with the test vector: ");
+        vector.crossProduct(testVector).print();
     }
 }
-

@@ -29,7 +29,7 @@ public class aufgabeEins {
         }
         return result;
     }
-    
+
     /**
      * converts a decimal integer into a number in base 8
      *
@@ -53,10 +53,10 @@ public class aufgabeEins {
             power--;
             result = result + i;                            //  record the first number, go on for second etc.
         }
-        
+
         return result;                          // *thinking* this may work for any base if you take it from method signature
     }
-    
+
     /**
      * converts a decimal integer into a binary number in two's complement with 8 bits total
      *
@@ -85,9 +85,9 @@ public class aufgabeEins {
         }
         return result;
     }
-    
+
     //  BONUS: number n in b's base, works for base 2-16
-    
+
     /**
      * converts a decimal integer into any base 2-16
      *
@@ -95,7 +95,7 @@ public class aufgabeEins {
      * @param b base of conversion
      * @return converted number n in base b
      */
-    
+
     static String toBaseX(int n, int b) {
         if (b < 2 || b > 16) {
             return "INVALID BASE";
@@ -119,18 +119,19 @@ public class aufgabeEins {
             power--;                                        //  go to lower power
             result = result + c[i];                         //  record that first number, go on for the next etc.
         }
-        
+
         return result;
     }
-    
+
     public static void main(String[] args) {
         int a = 42;
         int b = 25;
         int n = -120;
         byte c = -128;
         byte d = 5;
-    
-    
+
+
+
         System.out.println(a + " in BIN1C is: " + toBinary(a));
         System.out.println("-- Why do mathematicians have trouble holding Halloween and Christmas apart?\n" +
                 "-- Because OCT" + toOctal(b) + " = DEC25");
