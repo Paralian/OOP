@@ -16,7 +16,7 @@ public class RangerTest {
         ranger.equip(dagger);
         ranger.equip(greatSword);
         ranger.equip(crossBow);
-        assertEquals(null, ranger.getWeapon());
+        assertNull(ranger.getWeapon());
         ranger.equip(bow);
         assertEquals(bow, ranger.getWeapon());
         ranger.equip(gunLance);

@@ -16,8 +16,8 @@ public class RogueTest {
         rogue.equip(dagger, greatSword);
         rogue.equip(bow, crossBow);
         rogue.equip(gunLance, crossBow);
-        assertEquals(null, rogue.getWeaponOne());
-        assertEquals(null, rogue.getWeaponTwo());
+        assertNull(rogue.getWeaponOne());
+        assertNull(rogue.getWeaponTwo());
         rogue.equip(dagger, crossBow);
         assertEquals(dagger, rogue.getWeaponOne());
         assertEquals(crossBow, rogue.getWeaponTwo());
