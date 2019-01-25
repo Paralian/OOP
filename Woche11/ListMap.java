@@ -29,11 +29,11 @@ class ListMap<K, V> {
 
     void remove(K key) {
         List<Entry<K, V>> toBeRemoved = new LinkedList<>();
-        for (Entry<K, V> entry : map) {
-            if (entry.getKey().equals(key)) {
-                toBeRemoved.add(entry);
+        map.forEach(x -> {
+            if (x.getKey().equals(key)) {
+                toBeRemoved.add(x);
             }
-        }
+        });
         map.removeAll(toBeRemoved);
     }
 }

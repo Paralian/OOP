@@ -19,7 +19,6 @@ public class ListMapTest {
         for (Entry<String, String> entry : listMap.getMap()) {
             System.out.println(entry.toString());
         }
-        System.out.println();
     }
 
     @Test
