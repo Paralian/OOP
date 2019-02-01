@@ -19,6 +19,6 @@ public class IOStreams {
     }
 
     public static Map<String, Integer> countWords(Stream<String> words) {
-        return words.collect(Collectors.toMap(x -> x, x -> 1, Integer::sum));
+        return words.map(String::toLowerCase).collect(Collectors.toMap(x -> x, x -> 1, Integer::sum));
     }
 }
